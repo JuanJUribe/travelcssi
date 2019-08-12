@@ -12,12 +12,6 @@ body {
   footer {
     grid-column: 1 / span 2;
   }
-<<<<<<< HEAD
-  
-  
-  
-  /* Demo Specific Styles */
-=======
 
 
   .menu {
@@ -34,7 +28,6 @@ body {
 
 
 
->>>>>>> 533430d50e99f2c013fcb9eff884943a0290cade
   body {
     margin: 0 auto;
     max-width: 100%;

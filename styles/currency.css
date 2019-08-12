@@ -1,0 +1,31 @@
+.currency{
+    display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      text-align: center;
+      font-size: 40px;
+      font-weight: bold;
+      height: 700px;
+      background-image: url();
+      /*width: 100%*/
+  }
+  
+  p{
+    font-size: 25px;
+    height: 15px
+  }
+  
+  body {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      text-align: center;
+      background-color:#3B5072;
+      font-family: 'Playfair Display', serif;;
+      font-size: 15px;
+      color: #FCF4BC;
+      height: 400px;
+  }
+  

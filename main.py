@@ -51,10 +51,21 @@ class TranslatorHandler(webapp2.RequestHandler):
         template = jinja_env.get_template('templates/translator.html')
         self.response.write(template.render())
 
+class FetchWeatherLocationHandler(webapp2.RequestHandler):
+    def get(self):
+        base_url = 'https://www.metaweather.com/api/location/search/?'
+        params = {
+            'query':'san'
+        }
+        response = urlfetch.fetch(base_url+urlencode(params)).content
+        # response = urlfetch.fetch('https://www.metaweather.com/api/location/search/?query=san').content
+        self.response.write(response)
+
 app = webapp2.WSGIApplication([
     ('/', MainPageHandler),
     ('/booking', BookingHandler),
     ('/currency-exchange', CurrencyExchangeHandler),
     ('/weather', WeatherHandler),
     ('/translate', TranslatorHandler),
+    ('/fetchweather', FetchWeatherLocationHandler),
     ], debug=True)

@@ -10,30 +10,51 @@ jinja_env = jinja2.Environment(
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
 
-class SearchFormHandler(webapp2.RequestHandler):
+class MainPageHandler(webapp2.RequestHandler):
     def get(self):
-        template = jinja_env.get_template('templates/form.html')
+        template = jinja_env.get_template('templates/main.html')
         self.response.write(template.render())
 
-class RecipeDisplayHandler(webapp2.RequestHandler):
-    def post(self):
-        ingredients = self.request.get('ingredients')
-        recipe = self.request.get('recipe')
-        base_url = 'http://www.recipepuppy.com/api/?'
-        params = {
-            'i':ingredients,
-             'q':recipe
-        }
-        response = urlfetch.fetch(base_url+urlencode(params)).content
-        results = json.loads(response)
-        template = jinja_env.get_template('templates/recipe.html')
-        self.response.write(template.render({
-            'ingredients':ingredients,
-            'recipe':recipe,
-            'results':results,
-        }))
+class BookingHandler(webapp2.RequestHandler):
+    def get(self):
+        template = jinja_env.get_template('templates/booking.html')
+        self.response.write(template.render())
+    # def post(self):
+    #     ingredients = self.request.get('ingredients')
+    #     recipe = self.request.get('recipe')
+    #     base_url = 'http://www.recipepuppy.com/api/?'
+    #     params = {
+    #         'i':ingredients,
+    #          'q':recipe
+    #     }
+    #     response = urlfetch.fetch(base_url+urlencode(params)).content
+    #     results = json.loads(response)
+    #     template = jinja_env.get_template('templates/recipe.html')
+    #     self.response.write(template.render({
+    #         'ingredients':ingredients,
+    #         'recipe':recipe,
+    #         'results':results,
+    #     }))
+
+class CurrencyExchangeHandler(webapp2.RequestHandler):
+    def get(self):
+        template = jinja_env.get_template('templates/currency.html')
+        self.response.write(template.render())
+
+class WeatherHandler(webapp2.RequestHandler):
+    def get(self):
+        template = jinja_env.get_template('templates/weather.html')
+        self.response.write(template.render())
+
+class TranslatorHandler(webapp2.RequestHandler):
+    def get(self):
+        template = jinja_env.get_template('templates/translator.html')
+        self.response.write(template.render())
 
 app = webapp2.WSGIApplication([
-    ('/', SearchFormHandler),
-    ('/recipe', RecipeDisplayHandler)
+    ('/', MainPageHandler),
+    ('/booking', BookingHandler),
+    ('/currency-exchange', CurrencyExchangeHandler),
+    ('/weather', WeatherHandler),
+    ('/translate', TranslatorHandler),
     ], debug=True)

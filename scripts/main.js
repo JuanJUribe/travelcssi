@@ -8,7 +8,7 @@ window.onload = function() {
     let dir = loc.substring(0, loc.lastIndexOf('/'));
     window.location.href = dir + "/booking";
   }
- // ---
+  
  let currency = document.querySelector(".currency")
 
  currency.addEventListener('click', currencyRedirect);
@@ -18,9 +18,7 @@ window.onload = function() {
    let dir = loc.substring(0, loc.lastIndexOf('/'));
    window.location.href = dir + "/currency-exchange";
  }
- // ---
 
- // ---
  let translator = document.querySelector(".translator")
 
  translator.addEventListener('click', translatorRedirect);
@@ -30,8 +28,7 @@ window.onload = function() {
    let dir = loc.substring(0, loc.lastIndexOf('/'));
    window.location.href = dir + "/translate";
  }
- // ---
- // ---
+
  let weather = document.querySelector(".weather")
 
  weather.addEventListener('click', weatherRedirect);
@@ -41,7 +38,6 @@ window.onload = function() {
    let dir = loc.substring(0, loc.lastIndexOf('/'));
    window.location.href = dir + "/weather";
  }
- // ---
 
 
 

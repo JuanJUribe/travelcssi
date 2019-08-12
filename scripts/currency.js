@@ -11,7 +11,14 @@ promise.then(result => {
 })
 .then(jsonResult => {
   ratesResponse = jsonResult;
+
+  for (let rate in ratesResponse['rates']){
+    $('#selectInitial').after('<option value='+rate+'>'+rate+'</option>');
+    $('#selectConversion').after('<option value='+rate+'>'+rate+'</option>');
+  }
 })
+
+
 
 inputBox.addEventListener('input', conversion);
 initialCurrency.addEventListener('input', conversion);

@@ -1,0 +1,49 @@
+body {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 250px 300px 300px 300px 60px;
+    grid-gap: .3em;
+    
+  }
+  
+  
+  header,
+  footer {
+    grid-column: 1 / span 2;
+  }
+  
+  
+  }
+  
+  /* Demo Specific Styles */
+  body {
+    margin: 0 auto;
+    max-width: 100%;
+    padding: 1em 0;
+  }
+  
+  header
+   {
+    background: #eaeaea;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  
+  .booking,
+  .translator,
+  .currency,
+  .weather{
+    background: #eaeaea;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   }
+  
+  footer{
+     background: #eaeaea;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+  } 

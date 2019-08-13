@@ -61,10 +61,15 @@ class FetchWeatherHandler(webapp2.RequestHandler):
 class TranslatorHandler(webapp2.RequestHandler):
     def get(self):
         translate_client = translate.Client()
-        originaltext = u'Hello, World!'
+        originalText = u'Hello, World!'
         target = 'es'
 
-        translation = translate_client.translate()
+        translation = translate_client.translate(
+            originalText,
+            target_language=target)
+
+        print(u'Text: {}'.format(originalText))
+        print(u'Translation: {}'.format(translation['translatedText']))
 
         template = jinja_env.get_template('templates/translator.html')
         self.response.write(template.render())

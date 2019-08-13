@@ -20,7 +20,7 @@ class MainPageHandler(webapp2.RequestHandler):
         response = urlfetch.fetch(base_url, method=urlfetch.POST).content;
         results = json.loads(response);
         formattedResult = results["hello"];
-        language = request.META['HTTP_ACCEPT_LANGUAGE']
+        # language = request.META['HTTP_ACCEPT_LANGUAGE']
         logging.info("TEST: " + pformat(formattedResult));
         print(results)
         template = jinja_env.get_template('templates/main.html')

@@ -8,7 +8,7 @@ window.onload = function() {
     let dir = loc.substring(0, loc.lastIndexOf('/'));
     window.location.href = dir + "/booking";
   }
-  
+
  let currency = document.querySelector(".currency")
 
  currency.addEventListener('click', currencyRedirect);
@@ -38,7 +38,5 @@ window.onload = function() {
    let dir = loc.substring(0, loc.lastIndexOf('/'));
    window.location.href = dir + "/weather";
  }
-
-
 
 }

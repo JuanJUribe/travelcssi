@@ -12,8 +12,15 @@ jinja_env = jinja2.Environment(
 
 class MainPageHandler(webapp2.RequestHandler):
     def get(self):
+
+        base_url = "https://fourtonfish.com/hellosalut/?mode=auto";
+        response = urlfetch.fetch(base_url, method=urlfetch.POST).content;
+        results = json.loads(response);
+        logging.info(pformat(results));
         template = jinja_env.get_template('templates/main.html')
-        self.response.write(template.render())
+        self.response.write(template.render({
+            "results":results
+        }))
 
 class BookingHandler(webapp2.RequestHandler):
     def get(self):

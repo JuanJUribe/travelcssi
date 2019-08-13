@@ -5,7 +5,7 @@ let locationsResponse;
 locationInput.addEventListener('input', selectCity);
 
 function selectCity(){
-    $('.option').after
+    $('.option').remove()
     locationSearch = locationInput.value;
     const promise = fetch('/fetchweather/'+locationSearch);
     promise

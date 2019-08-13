@@ -1,15 +1,32 @@
 <!DOCTYPE html>
+
 <html lang="en" dir="ltr">
   <head>
+    <link href="https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.typekit.net/mdr8lxf.css">
     <meta charset="utf-8">
     <link rel="stylesheet" href="/styles/currency.css">
     <title>Currency Page</title>
   </head>
   <body>
+      <div class="navbar">
+          <p>TRAVEL PORTAL</p>
+          <!-- <a href="#contact">Contact</a> -->
+      </div>
     <div class="currency">
-  <main>Currency</main></div>
+      <main><p>Currency</p></main></div>
+    <div class="image">
+            <img src= "https://i.pinimg.com/564x/98/ce/3a/98ce3aec1f609a52585b273787e30e91.jpg" alt="image" height=90% width=90%>
+     </div>
     <form>
-      <p> Enter value: </p>
+      <div class="caption">
+        <p>Wondering just how much foreign currency you might need for your next trip?</p>
+          <p>See how much you can recieve for your money in the currency converter below -></p>
+        </div>
+      
+        <div class="value">
+            <span id="enterValue">Enter Value:</span>
+            </div>
       <div id='initial'>
         <input type='text 'name='value' id='inputValue'>
         <select id='initialCurrency'>
@@ -17,7 +34,7 @@
         </select>
       </div>
       <div id='conversion'>
-        <span id='conversionResult'> new value </span>
+        <span id='conversionResult'> New Value </span>
         <select id='conversionCurrency'>
           <option value='select' id='selectConversion'>Select</option>
         </select>

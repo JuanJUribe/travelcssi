@@ -3,7 +3,7 @@ body {
     grid-template-columns: 50% 50%;
     grid-template-rows: 250px 300px 300px 60px;
     grid-gap: .3em;
-    background-color: black;
+    background-color: white;
   }
 
 
@@ -41,6 +41,7 @@ body {
   width: 100%;
   position: fixed;
   z-index: 100;
+  background-color: white;
 }
 
 nav {
@@ -61,12 +62,12 @@ nav ul li {
 nav ul li a {
   display: block;
   padding: 20px;
-  color: #fff;
+  color: black;
   text-decoration: none;
 }
 
 nav ul li:hover {
-  background: grey;
+  background: lightgrey;
 }
 
 * {
@@ -163,9 +164,9 @@ nav ul li:hover {
   font-family: 'Lexend Zetta', sans-serif;
 }
   footer{
-     background: black;
+     background: none;
      display: flex;
      align-items: center;
      justify-content: center;
-     color: white;
+     color: black;
   }

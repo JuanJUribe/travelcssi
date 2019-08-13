@@ -1,5 +1,4 @@
 window.onload = function() {
-
   let booking = document.querySelector(".booking")
 
   booking.addEventListener('click', bookingRedirect);
@@ -9,15 +8,7 @@ window.onload = function() {
     let dir = loc.substring(0, loc.lastIndexOf('/'));
     window.location.href = dir + "/booking";
   }
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
- // ---
-=======
-  
->>>>>>> 1793e0f671bade518ddf34b0c372912061eef75b
->>>>>>> master
  let currency = document.querySelector(".currency")
 
  currency.addEventListener('click', currencyRedirect);
@@ -27,13 +18,7 @@ window.onload = function() {
    let dir = loc.substring(0, loc.lastIndexOf('/'));
    window.location.href = dir + "/currency-exchange";
  }
-<<<<<<< HEAD
- // ---
 
- // ---
-=======
-
->>>>>>> 1793e0f671bade518ddf34b0c372912061eef75b
  let translator = document.querySelector(".translator")
 
  translator.addEventListener('click', translatorRedirect);
@@ -43,12 +28,7 @@ window.onload = function() {
    let dir = loc.substring(0, loc.lastIndexOf('/'));
    window.location.href = dir + "/translate";
  }
-<<<<<<< HEAD
- // ---
- // ---
-=======
 
->>>>>>> 1793e0f671bade518ddf34b0c372912061eef75b
  let weather = document.querySelector(".weather")
 
  weather.addEventListener('click', weatherRedirect);
@@ -58,9 +38,5 @@ window.onload = function() {
    let dir = loc.substring(0, loc.lastIndexOf('/'));
    window.location.href = dir + "/weather";
  }
-<<<<<<< HEAD
- // ---
-=======
->>>>>>> 1793e0f671bade518ddf34b0c372912061eef75b
 
 }

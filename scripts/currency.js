@@ -6,17 +6,16 @@ const conversionCurrency = document.querySelector('#conversionCurrency');
 let ratesResponse;
 
 const promise = fetch('http://data.fixer.io/api/latest?access_key=7d92924d0f0566a0e74cc504ccd4596a');
-promise.then(result => {
-  return result.json();
-})
-.then(jsonResult => {
-  ratesResponse = jsonResult;
+promise
+    .then(result => result.json())
+    .then(jsonResult => {
+      ratesResponse = jsonResult;
 
-  for (let rate in ratesResponse['rates']){
-    $('#selectInitial').after('<option value='+rate+'>'+rate+'</option>');
-    $('#selectConversion').after('<option value='+rate+'>'+rate+'</option>');
-  }
-})
+      for (let rate in ratesResponse['rates']){
+        $('#selectInitial').after('<option value='+rate+'>'+rate+'</option>');
+        $('#selectConversion').after('<option value='+rate+'>'+rate+'</option>');
+      }
+    })
 
 
 

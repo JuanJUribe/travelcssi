@@ -1,4 +1,5 @@
 window.onload = function() {
+
   let booking = document.querySelector(".booking")
 
   booking.addEventListener('click', bookingRedirect);

@@ -19,22 +19,6 @@ class BookingHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_env.get_template('templates/booking.html')
         self.response.write(template.render())
-    # def post(self):
-    #     ingredients = self.request.get('ingredients')
-    #     recipe = self.request.get('recipe')
-    #     base_url = 'http://www.recipepuppy.com/api/?'
-    #     params = {
-    #         'i':ingredients,
-    #          'q':recipe
-    #     }
-    #     response = urlfetch.fetch(base_url+urlencode(params)).content
-    #     results = json.loads(response)
-    #     template = jinja_env.get_template('templates/recipe.html')
-    #     self.response.write(template.render({
-    #         'ingredients':ingredients,
-    #         'recipe':recipe,
-    #         'results':results,
-    #     }))
 
 class CurrencyExchangeHandler(webapp2.RequestHandler):
     def get(self):
@@ -51,10 +35,27 @@ class TranslatorHandler(webapp2.RequestHandler):
         template = jinja_env.get_template('templates/translator.html')
         self.response.write(template.render())
 
+class FetchWeatherLocationHandler(webapp2.RequestHandler):
+    def get(self, city_input):
+        base_url = 'https://www.metaweather.com/api/location/search/?'
+        params = {
+            'query':city_input
+        }
+        response = urlfetch.fetch(base_url+urlencode(params)).content
+        self.response.write(response)
+
+class FetchWeatherHandler(webapp2.RequestHandler):
+    def get(self, city_id):
+        base_url = 'https://www.metaweather.com/api/location/'
+        response = urlfetch.fetch(base_url+city_id).content
+        self.response.write(response)
+
 app = webapp2.WSGIApplication([
     ('/', MainPageHandler),
     ('/booking', BookingHandler),
     ('/currency-exchange', CurrencyExchangeHandler),
     ('/weather', WeatherHandler),
     ('/translate', TranslatorHandler),
+    ('/fetchlocationweather/([\w %]*)', FetchWeatherLocationHandler),
+    ('/fetchweather/(\d+)', FetchWeatherHandler),
     ], debug=True)

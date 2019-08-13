@@ -52,14 +52,14 @@ class TranslatorHandler(webapp2.RequestHandler):
         self.response.write(template.render())
 
 class FetchWeatherLocationHandler(webapp2.RequestHandler):
-    def get(self):
+    def get(self, city_input):
         base_url = 'https://www.metaweather.com/api/location/search/?'
         params = {
-            'query':'san'
+            'query':city_input
         }
         response = urlfetch.fetch(base_url+urlencode(params)).content
-        # response = urlfetch.fetch('https://www.metaweather.com/api/location/search/?query=san').content
         self.response.write(response)
+
 
 app = webapp2.WSGIApplication([
     ('/', MainPageHandler),
@@ -67,5 +67,5 @@ app = webapp2.WSGIApplication([
     ('/currency-exchange', CurrencyExchangeHandler),
     ('/weather', WeatherHandler),
     ('/translate', TranslatorHandler),
-    ('/fetchweather', FetchWeatherLocationHandler),
+    ('/fetchweather/(\w+)', FetchWeatherLocationHandler),
     ], debug=True)

@@ -61,9 +61,9 @@ class FetchWeatherLocationHandler(webapp2.RequestHandler):
         self.response.write(response)
 
 class FetchWeatherHandler(webapp2.RequestHandler):
-    def get(self, city_input):
+    def get(self, city_id):
         base_url = 'https://www.metaweather.com/api/location/'
-        response = urlfetch.fetch(base_url+city_input).content
+        response = urlfetch.fetch(base_url+city_id).content
         self.response.write(response)
 
 app = webapp2.WSGIApplication([
@@ -72,6 +72,6 @@ app = webapp2.WSGIApplication([
     ('/currency-exchange', CurrencyExchangeHandler),
     ('/weather', WeatherHandler),
     ('/translate', TranslatorHandler),
-    ('/fetchlocationweather/(\w+)', FetchWeatherLocationHandler),
-    ('/fetchweather/(\w+)', FetchWeatherHandler),
+    ('/fetchlocationweather/([\w %]*)', FetchWeatherLocationHandler),
+    ('/fetchweather/(\d+)', FetchWeatherHandler),
     ], debug=True)

@@ -4,16 +4,23 @@
       justify-content: space-evenly;
       align-items: center;
       text-align: center;
-      font-size: 40px;
+      font-size: 35px;
       font-weight: bold;
-      height: 700px;
+      height: 800px;
+      /* background-color: white; */
       background-image: url();
       /*width: 100%*/
   }
+
   
-  p{
+  .caption{
+    font-size: 20px;
+    height: 250px
+  }
+
+  .value{
     font-size: 25px;
-    height: 15px
+    height: 30px
   }
   
   body {
@@ -22,10 +29,30 @@
       justify-content: space-evenly;
       align-items: center;
       text-align: center;
-      background-color:#3B5072;
+      background-image: url(https://static01.nyt.com/images/2019/05/22/lens/23Anniversary3/351a17a4aff144b4888f1ea099665f9d-superJumbo.jpg?quality=90&auto=webp);
+      width: 100%;
+      background-color: grey;
       font-family: 'Playfair Display', serif;;
       font-size: 15px;
-      color: #FCF4BC;
-      height: 400px;
+      color: white;
+      height: 500px;
   }
   
+
+  .navbar {
+    overflow: hidden;
+    background-color: black;
+    color: white;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+  
+      height: 25px;
+      font-size: 15px;
+      font-family: 'Playfair Display', serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      text-align: center;
+  }

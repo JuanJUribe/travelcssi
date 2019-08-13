@@ -1,58 +1,98 @@
 .currency{
-    display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-      align-items: center;
-      text-align: center;
-      font-size: 35px;
-      font-weight: bold;
-      height: 800px;
-      /* background-color: white; */
-      background-image: url();
-      /*width: 100%*/
-  }
+    margin: 60px;
+    grid-column: 1;
+    grid-row: 1;
+    align-items: center;
+    text-align: left;
+    font-size: 80px;
+    height: 1px;
+    /* background-color: white; */
+    background-image: url();
+    width: 100%;
+    color: #8BACB9;
+    font-family: neuzeit-grotesk, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+}
 
-  
-  .caption{
-    font-size: 20px;
-    height: 250px
-  }
-
-  .value{
-    font-size: 25px;
-    height: 30px
-  }
-  
-  body {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-      align-items: center;
-      text-align: center;
-      background-image: url(https://static01.nyt.com/images/2019/05/22/lens/23Anniversary3/351a17a4aff144b4888f1ea099665f9d-superJumbo.jpg?quality=90&auto=webp);
-      width: 100%;
-      background-color: grey;
-      font-family: 'Playfair Display', serif;;
-      font-size: 15px;
-      color: white;
-      height: 500px;
-  }
-  
-
-  .navbar {
-    overflow: hidden;
+body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     background-color: black;
-    color: white;
-    position: fixed; /* Set the navbar to fixed position */
-    top: 0; /* Position the navbar at the top of the page */
-    width: 100%; /* Full width */
-  
-      height: 25px;
-      font-size: 15px;
-      font-family: 'Playfair Display', serif;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-      align-items: center;
-      text-align: center;
-  }
+    width: 100vw;
+    background-color: white;
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    color: #013B52;
+    height: 30px;
+
+}
+
+
+form {
+   margin: 60px;
+   grid-column: 1;
+   grid-row: 2;
+   width:100%;
+   font-size: 20px;
+
+}
+
+
+#enterValue, #conversionResult{
+font-size: 15px;
+font-family: neuzeit-grotesk-condensed, sans-serif;
+font-style: normal;
+font-weight: 300;
+}
+
+#initial, #conversion{
+ grid-column: 1;
+ grid-row: 1;
+ width: 100%;
+ height: 30px;
+}
+.caption{
+  grid-column: 1;
+  grid-row: 1;
+  font-size: 40px;
+  font-weight: bold;
+  width: 100vh;
+/*     margin: 100px;*/
+ 
+} 
+
+.value{
+  font-size: 40px;
+/*     margin: 100px; */
+  grid-row: 2;
+  height: 40px
+}
+
+.image{
+grid-column: 2;
+grid-row: 2;
+}
+.navbar {
+  overflow: hidden;
+  background-color: #C7D5DA;
+  color: black;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+
+    height: 25px;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: 'Playfair Display', serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+}
+
+p {
+display: inline;
+}

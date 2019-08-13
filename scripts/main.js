@@ -1,4 +1,5 @@
 window.onload = function() {
+
   let booking = document.querySelector(".booking")
 
   booking.addEventListener('click', bookingRedirect);
@@ -9,10 +10,14 @@ window.onload = function() {
     window.location.href = dir + "/booking";
   }
 <<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
  // ---
 =======
   
 >>>>>>> 1793e0f671bade518ddf34b0c372912061eef75b
+>>>>>>> master
  let currency = document.querySelector(".currency")
 
  currency.addEventListener('click', currencyRedirect);
@@ -57,7 +62,5 @@ window.onload = function() {
  // ---
 =======
 >>>>>>> 1793e0f671bade518ddf34b0c372912061eef75b
-
-
 
 }

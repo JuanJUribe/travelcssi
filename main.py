@@ -4,6 +4,9 @@ import os
 import json
 from google.appengine.api import urlfetch
 from urllib import urlencode
+import logging
+
+from pprint import pformat
 
 jinja_env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -12,8 +15,18 @@ jinja_env = jinja2.Environment(
 
 class MainPageHandler(webapp2.RequestHandler):
     def get(self):
+
+        base_url = "https://fourtonfish.com/hellosalut/?mode=auto";
+        response = urlfetch.fetch(base_url, method=urlfetch.POST).content;
+        results = json.loads(response);
+        formattedResult = results["hello"];
+        language = request.META['HTTP_ACCEPT_LANGUAGE']
+        logging.info("TEST: " + pformat(formattedResult));
+        print(results)
         template = jinja_env.get_template('templates/main.html')
-        self.response.write(template.render())
+        self.response.write(template.render({
+            "results":formattedResult
+        }))
 
 class BookingHandler(webapp2.RequestHandler):
     def get(self):

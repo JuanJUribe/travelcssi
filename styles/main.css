@@ -4,7 +4,6 @@ body {
     grid-template-rows: 250px 300px 300px 60px;
     grid-gap: .3em;
     background-color: black;
-
   }
 
 
@@ -22,26 +21,58 @@ body {
     -ms-transform: scale(1.04);
   -webkit-transform: scale(1.04);
   transform: scale(1.04);
-
   }
-
-
-
 
   body {
     margin: 0 auto;
     max-width: 100%;
-    padding: 1em 0;
   }
 
-  header
-   {
+  header {
     background: #eaeaea;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
   }
 
+
+#header {
+  background: rgba(0,0,0,0.9);
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+}
+
+nav {
+  float: left;
+}
+
+nav ul {
+  list-style: none;
+  overflow: hidden;
+}
+
+nav ul li {
+  float: left;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+nav ul li a {
+  display: block;
+  padding: 20px;
+  color: #fff;
+  text-decoration: none;
+}
+
+nav ul li:hover {
+  background: grey;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
 
   .booking,
   .translator,
@@ -57,7 +88,7 @@ body {
      background-image: url("https://images.pexels.com/photos/1574650/pexels-photo-1574650.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
      opacity: 0.8;
      background-repeat: no-repeat;
-     background-size: 100%;
+     background-size: cover;
      background-position: center;
      color: white;
      font-size: 80px;
@@ -84,14 +115,13 @@ body {
     margin-bottom: 5px;
     margin-top: 10px;
     font-family: 'Lexend Zetta', sans-serif;
-
 }
 
   .weather {
     background-image: url("https://images.pexels.com/photos/1420440/pexels-photo-1420440.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
     opacity: 0.8;
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
     background-position: center;
     font-size: 50px;
     color: white;
@@ -106,7 +136,7 @@ body {
     background-image: url("https://www.thoughtco.com/thmb/_rZJduu5TLUo8wm_WDwFKrmosWw=/768x0/filters:no_upscale():max_bytes(150000):strip_icc()/world-currency-rates-483658563-16daf393a06a43b88198cc0098af9fa9.jpg");
     opacity: 0.8;
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
     background-position: center;
     font-size: 50px;
     color: white;
@@ -121,7 +151,7 @@ body {
   background-image: url("https://www.friscoisd.org/images/default-source/district-news/news-article-thumbnails/world-languages-welcome.jpg?sfvrsn=0");
   opacity: 0.8;
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;
   background-position: center;
   font-size: 50px;
   color: white;

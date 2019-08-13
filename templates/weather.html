@@ -7,8 +7,18 @@
   </head>
   <body>
     <h1>Weather Page</h1>
-    <section>
-      
+    <form>
+      <p>Location</p>
+      <input type='text' list='locations' name='location' id='location'>
+      <datalist id='locations'>
+        <option id='selectInitial'>Select</option>
+      </datalist>
+    </form>
+    <section id='weatherResult'>
+
     </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src='scripts/weather.js'>
+    </script>
   </body>
 </html>

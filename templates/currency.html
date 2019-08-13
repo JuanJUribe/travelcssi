@@ -6,13 +6,24 @@
     <title>Currency Page</title>
   </head>
   <body>
+    <div class="currency">
+  <main>Currency</main></div>
     <form>
-      <select id='initialcurrency'>
-        <option value='USD'>USD</option>
-        <option value='COP'>COP</option>
-        <option value='EUR'></option>
-      </select>
-      <p><input type>
+      <p> Enter value: </p>
+      <div id='initial'>
+        <input type='text 'name='value' id='inputValue'>
+        <select id='initialCurrency'>
+          <option value='select' id='selectInitial'>Select</option>
+        </select>
+      </div>
+      <div id='conversion'>
+        <span id='conversionResult'> new value </span>
+        <select id='conversionCurrency'>
+          <option value='select' id='selectConversion'>Select</option>
+        </select>
+      </div>
     </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src='scripts/currency.js'>
+    </script>
   </body>
-</html>

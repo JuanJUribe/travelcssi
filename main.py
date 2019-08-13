@@ -5,7 +5,7 @@ import json
 from google.appengine.api import urlfetch
 from urllib import urlencode
 import logging
-
+from google.cloud import translate
 from pprint import pformat
 
 jinja_env = jinja2.Environment(
@@ -43,11 +43,6 @@ class WeatherHandler(webapp2.RequestHandler):
         template = jinja_env.get_template('templates/weather.html')
         self.response.write(template.render())
 
-class TranslatorHandler(webapp2.RequestHandler):
-    def get(self):
-        template = jinja_env.get_template('templates/translator.html')
-        self.response.write(template.render())
-
 class FetchWeatherLocationHandler(webapp2.RequestHandler):
     def get(self, city_input):
         base_url = 'https://www.metaweather.com/api/location/search/?'
@@ -62,6 +57,17 @@ class FetchWeatherHandler(webapp2.RequestHandler):
         base_url = 'https://www.metaweather.com/api/location/'
         response = urlfetch.fetch(base_url+city_id).content
         self.response.write(response)
+
+class TranslatorHandler(webapp2.RequestHandler):
+    def get(self):
+        translate_client = translate.Client()
+        originaltext = u'Hello, World!'
+        target = 'es'
+
+        translation = translate_client.translate()
+
+        template = jinja_env.get_template('templates/translator.html')
+        self.response.write(template.render())
 
 app = webapp2.WSGIApplication([
     ('/', MainPageHandler),

@@ -19,22 +19,6 @@ class BookingHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_env.get_template('templates/booking.html')
         self.response.write(template.render())
-    # def post(self):
-    #     ingredients = self.request.get('ingredients')
-    #     recipe = self.request.get('recipe')
-    #     base_url = 'http://www.recipepuppy.com/api/?'
-    #     params = {
-    #         'i':ingredients,
-    #          'q':recipe
-    #     }
-    #     response = urlfetch.fetch(base_url+urlencode(params)).content
-    #     results = json.loads(response)
-    #     template = jinja_env.get_template('templates/recipe.html')
-    #     self.response.write(template.render({
-    #         'ingredients':ingredients,
-    #         'recipe':recipe,
-    #         'results':results,
-    #     }))
 
 class CurrencyExchangeHandler(webapp2.RequestHandler):
     def get(self):

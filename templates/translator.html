@@ -8,7 +8,17 @@
   <body>
     <h1>Translator Page</h1>
     <section>
-      
+      <select id ='inputLang'>
+        <option id='autoLang'>Auto</option>
+      </select>
+      <textarea name='inputBox' id='inputBox' rows="10" cols="30">Type text to translate</textarea>
+			<button id='translateButton'>Translate</button>
+      <textarea name='resultBox' id='resultBox' rows="10" cols="30">Translation</textarea>
+      <select id ='outputLang'>
+        <option id='es' value='es'>Spanish</option>
+      </select>
     </section>
+    <script type="text/javascript" src='scripts/translate.js'>
+    </script>
   </body>
 </html>

@@ -2,13 +2,25 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+     <link rel="stylesheet" href="https://use.typekit.net/mdr8lxf.css">
     <link rel="stylesheet" href="/styles/weather.css">
     <title>Weather Page</title>
+    <header id='header'>
+        <nav>
+          <ul>
+            <li><a href="/">MAIN</a></li>
+            <li><a href="/booking">BOOKING</a></li>
+            <li><a href="/translate">TRANSLATOR</a></li>
+            <li><a href="/currency-exchange">CURRENCY EXCHANGE</a></li>
+            <li><a href="/weather">WEATHER</a></li>
+          </ul>
+        </nav>
+      </header>
   </head>
   <body>
-    <h1>Weather Page</h1>
+    <h1>WEATHER</h1>
     <form>
-      <p>Location</p>
+      <p>Enter Location:</p>
       <input type='text' list='locations' name='location' id='location'>
       <datalist id='locations'>
         <option id='selectInitial'>Select</option>
@@ -17,8 +29,14 @@
     <section id='weatherResult'>
 
     </section>
+      
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src='scripts/weather.js'>
     </script>
   </body>
 </html>
+
+
+<footer>
+  This site is &copyAPOLLOTRAVEL 2019
+</footer>

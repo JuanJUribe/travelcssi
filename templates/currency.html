@@ -1,15 +1,49 @@
 <!DOCTYPE html>
+
 <html lang="en" dir="ltr">
   <head>
+    <link rel="stylesheet" href="https://use.typekit.net/mdr8lxf.css">
+    <link rel="stylesheet" href="https://use.typekit.net/mdr8lxf.css">
     <meta charset="utf-8">
     <link rel="stylesheet" href="/styles/currency.css">
     <title>Currency Page</title>
+    <header id='header'>
+        <nav>
+          <ul>
+            <li><a href="/">MAIN</a></li>
+            <li><a href="/booking">BOOKING</a></li>
+            <li><a href="/translate">TRANSLATOR</a></li>
+            <li><a href="/currency-exchange">CURRENCY EXCHANGE</a></li>
+            <li><a href="/weather">WEATHER</a></li>
+          </ul>
+        </nav>
+      </header>
   </head>
   <body>
+      <div class="navbar">
+          <p>APOLLO TRAVEL</p>
+          <!-- <a href="#contact">Contact</a> -->
+      </div>
     <div class="currency">
-  <main>Currency</main></div>
+      <main><p>CURRENCY</p></main></div>
+    <div class="image">
+            <img src= "https://i.pinimg.com/564x/98/ce/3a/98ce3aec1f609a52585b273787e30e91.jpg" alt="image" height=400vh width=400vh >
+     </div>
+    <div class="bio1">
+      <p>Cartagena, Spain</p>
+    </div>
+    <div class="bio2">
+      <p>   Cartagena is a port city and naval base in the Murcia region of southeast Spain. Founded by the Carthaginians around 220 B.C., the city boomed during the Roman period. Among its many Roman ruins are a 1st-century B.C. theater and Casa de la Fortuna, a villa with murals and mosaics. The Muralla Púnica (Punic Wall) interpretation center houses the remains of a 3rd-century B.C. defensive wall.</p>
+    </div>
     <form>
-      <p> Enter value: </p>
+      <div class="caption">
+        <p>Wondering just how much foreign currency you might need for your next trip?</p>
+          <p>See how much you can recieve for your money in the currency converter below </p>
+        </div>
+      
+        <div class="value">
+            <span id="enterValue">Enter Value:</span>
+            </div>
       <div id='initial'>
         <input type='text 'name='value' id='inputValue'>
         <select id='initialCurrency'>
@@ -17,7 +51,7 @@
         </select>
       </div>
       <div id='conversion'>
-        <span id='conversionResult'> new value </span>
+        <span id='conversionResult'> New Value </span>
         <select id='conversionCurrency'>
           <option value='select' id='selectConversion'>Select</option>
         </select>
@@ -26,4 +60,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src='scripts/currency.js'>
     </script>
+    <footer>
+  This site is &copyAPOLLOTRAVEL 2019
+</footer>
   </body>

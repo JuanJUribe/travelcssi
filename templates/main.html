@@ -6,10 +6,15 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="/styles/main.css">
     <script src="scripts/main.js">
-
     </script>
     <title>Main Page</title>
     <header id='header'>
+      {% if logout_url %}
+        <a href= '{{ logout_url }}'>Sign out</a>
+      {% endif %}
+      {% if login_url %}
+        <a href= '{{ login_url }}'>Sign in</a>
+      {% endif %}
 	<nav>
 		<ul>
 			<li><a href="/">MAIN</a></li>

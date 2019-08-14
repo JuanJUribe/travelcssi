@@ -8,8 +8,6 @@ import logging
 from google.cloud import translate
 from pprint import pformat
 
-# from flask import jsonify
-
 jinja_env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
     extensions=['jinja2.ext.autoescape'],
@@ -77,35 +75,8 @@ class FetchTranslationHandler(webapp2.RequestHandler):
         self.response.headers['Content-Type'] = 'application/json'
         self.response.write(translation)
 
-# class FakeHandler(webapp2.RequestHandler):
-#     def get(self):
-#         try:
-#             logging.info("FAKE HANDLER ...")
-#
-#             content = {
-#               "brand": "Ford",
-#               "model": "Mustang",
-#               "year": 1964
-#             }
-#             logging.info("PFORMAT CONTENT:")
-#             logging.info(pformat(content))
-#
-#             dump = json.dumps(content)
-#             logging.info("JSON DUMP CONTENT:")
-#             logging.info(dump)
-#
-#             # jsonify = jsonify(content)
-#             # logging.info("PFORMAT JSON:")
-#             # logging.info(jsonify)
-#
-#             self.response.headers['Content-Type'] = 'application/json'
-#             self.response.write(dump)
-#         except:
-#             print("BAD")
-
 app = webapp2.WSGIApplication([
     ('/', MainPageHandler),
-    ('/fake', FakeHandler),
     ('/booking', BookingHandler),
     ('/currency-exchange', CurrencyExchangeHandler),
     ('/weather', WeatherHandler),

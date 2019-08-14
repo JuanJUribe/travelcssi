@@ -20,7 +20,6 @@ class MainPageHandler(webapp2.RequestHandler):
         response = urlfetch.fetch(base_url, method=urlfetch.POST).content;
         results = json.loads(response);
         formattedResult = results["hello"];
-        language = request.META['HTTP_ACCEPT_LANGUAGE']
         logging.info("TEST: " + pformat(formattedResult));
         print(results)
         template = jinja_env.get_template('templates/main.html')
@@ -63,10 +62,13 @@ class FetchWeatherHandler(webapp2.RequestHandler):
         response = urlfetch.fetch(base_url+city_id).content
         self.response.write(response)
 
-# class ContactHandler(webapp2.RequestHandler):
-#     def get(self):
-#         template = jinja_env.get_template('templates/contact.html')
-#         self.response.write(template.render())
+class ContactHandler(webapp2.RequestHandler):
+    def get(self):
+        template = jinja_env.get_template('templates/contact.html')
+        self.response.write(template.render())
+    def post(self):
+        print('big success')
+        self.response.write('hola')
 
 app = webapp2.WSGIApplication([
     ('/', MainPageHandler),
@@ -76,5 +78,5 @@ app = webapp2.WSGIApplication([
     ('/translate', TranslatorHandler),
     ('/fetchlocationweather/([\w %]*)', FetchWeatherLocationHandler),
     ('/fetchweather/(\d+)', FetchWeatherHandler),
-    # ('/contact-us', ContactHandler),
+    ('/contact-us', ContactHandler),
     ], debug=True)

@@ -8,6 +8,9 @@ import logging
 from google.cloud import translate
 from pprint import pformat
 
+from flask import jsonify
+
+
 jinja_env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
     extensions=['jinja2.ext.autoescape'],
@@ -60,26 +63,52 @@ class FetchWeatherHandler(webapp2.RequestHandler):
 
 class TranslatorHandler(webapp2.RequestHandler):
     def get(self):
-        translate_client = translate.Client()
-        originalText = u'Hello, World!'
-        target = 'es'
-
-        translation = translate_client.translate(
-            originalText,
-            target_language=target)
-
-        print(u'Text: {}'.format(originalText))
-        print(u'Translation: {}'.format(translation['translatedText']))
-
         template = jinja_env.get_template('templates/translator.html')
         self.response.write(template.render())
 
+class FetchTranslationHandler(webapp2.RequestHandler):
+    def get(self, originalText, target):
+        translate_client = translate.Client()
+        translation = translate_client.translate(
+            originalText,
+            target_language=target)
+        self.response.headers['Content-Type'] = 'application/json'
+        self.response.write(translation)
+
+class FakeHandler(webapp2.RequestHandler):
+    def get(self):
+        try:
+            logging.info("FAKE HANDLER ...")
+
+            content = {
+              "brand": "Ford",
+              "model": "Mustang",
+              "year": 1964
+            }
+            logging.info("PFORMAT CONTENT:")
+            logging.info(pformat(content))
+
+            dump = json.dumps(content)
+            logging.info("JSON DUMP CONTENT:")
+            logging.info(dump)
+
+            # jsonify = jsonify(content)
+            # logging.info("PFORMAT JSON:")
+            # logging.info(jsonify)
+
+            self.response.headers['Content-Type'] = 'application/json'
+            self.response.write(dump)
+        except:
+            print("BAD")
+
 app = webapp2.WSGIApplication([
     ('/', MainPageHandler),
+    ('/fake', FakeHandler),
     ('/booking', BookingHandler),
     ('/currency-exchange', CurrencyExchangeHandler),
     ('/weather', WeatherHandler),
     ('/translate', TranslatorHandler),
     ('/fetchlocationweather/([\w %]*)', FetchWeatherLocationHandler),
     ('/fetchweather/(\d+)', FetchWeatherHandler),
+    ('/fetchtranslate/([\w %]*)/(\w*)', FetchTranslationHandler),
     ], debug=True)

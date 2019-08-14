@@ -44,11 +44,14 @@ class CheckUserHandler(webapp2.RequestHandler):
     def get(self):
         google_user = users.get_current_user()
         if google_user:
-            user = User.query().filter(User.email == google_user.email())
+            user = User.query().filter(User.email == google_user.email()).get()
+            # print('*******'+user)
             if user:
-                return self.redirect('/profile')
+                return self.redirect('/')
             else:
                 return self.redirect('/profile')
+        else:
+            return self.redirect('/')
 
 class ProfileHandler(webapp2.RequestHandler):
     def get(self):
@@ -58,12 +61,14 @@ class ProfileHandler(webapp2.RequestHandler):
         first_name = self.request.get('first_name')
         last_name = self.request.get('last_name')
         country = self.request.get('country')
-        template = jinja_env.get_template('templates/post-profile.html')
-        self.response.write(template.render({
-            'first_name' : first_name,
-            'last_name' : last_name,
-            'country' : country,
-        }))
+        city = self.request.get('city')
+        currency = self.request.get('currency')
+        language = self.request.get('language')
+        email = users.get_current_user().email()
+
+        User(city=city, currency=currency, language=language, email=email, first_name=first_name, last_name=last_name, country=country).put()
+
+        return self.redirect('/')
 
 class BookingHandler(webapp2.RequestHandler):
     def get(self):

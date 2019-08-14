@@ -24,7 +24,7 @@ function translation(){
     const path = '/fetchtranslate/'+originalText+'/'+target
     const promise = fetch(path);
     promise
-        .then(result => result.json())       })
+        .then(result => result.json())
         .then(jsonResult => {
           console.log("JSON RESULT:")
           console.log(jsonResult);

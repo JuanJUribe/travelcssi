@@ -5,7 +5,7 @@ import json
 from google.appengine.api import urlfetch
 from urllib import urlencode
 import logging
-
+from google.cloud import translate
 from pprint import pformat
 
 jinja_env = jinja2.Environment(
@@ -15,18 +15,17 @@ jinja_env = jinja2.Environment(
 
 class MainPageHandler(webapp2.RequestHandler):
     def get(self):
+            base_url = "https://fourtonfish.com/hellosalut/?mode=auto";
+            response = urlfetch.fetch(base_url, method=urlfetch.POST).content;
+            results = json.loads(response);
+            formattedResult = results["hello"];
+            # language = request.META['HTTP_ACCEPT_LANGUAGE']
+            logging.info("TEST: " + pformat(formattedResult));
+            template = jinja_env.get_template('templates/main.html')
+            self.response.write(template.render({
+                "results":results
+            }))
 
-        base_url = "https://fourtonfish.com/hellosalut/?mode=auto";
-        response = urlfetch.fetch(base_url, method=urlfetch.POST).content;
-        results = json.loads(response);
-        formattedResult = results["hello"];
-        # language = request.META['HTTP_ACCEPT_LANGUAGE']
-        logging.info("TEST: " + pformat(formattedResult));
-        print(results)
-        template = jinja_env.get_template('templates/main.html')
-        self.response.write(template.render({
-            "results":formattedResult
-        }))
 
 class BookingHandler(webapp2.RequestHandler):
     def get(self):
@@ -41,11 +40,6 @@ class CurrencyExchangeHandler(webapp2.RequestHandler):
 class WeatherHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_env.get_template('templates/weather.html')
-        self.response.write(template.render())
-
-class TranslatorHandler(webapp2.RequestHandler):
-    def get(self):
-        template = jinja_env.get_template('templates/translator.html')
         self.response.write(template.render())
 
 class FetchWeatherLocationHandler(webapp2.RequestHandler):
@@ -63,6 +57,24 @@ class FetchWeatherHandler(webapp2.RequestHandler):
         response = urlfetch.fetch(base_url+city_id).content
         self.response.write(response)
 
+class TranslatorHandler(webapp2.RequestHandler):
+    def get(self):
+        template = jinja_env.get_template('templates/translator.html')
+        self.response.write(template.render())
+
+class FetchTranslationHandler(webapp2.RequestHandler):
+    def get(self, originalText, target):
+        translate_client = translate.Client()
+
+        translation = translate_client.translate(
+            originalText,
+            target_language=target)
+
+        translation = json.dumps(translation)
+
+        self.response.headers['Content-Type'] = 'application/json'
+        self.response.write(translation)
+
 app = webapp2.WSGIApplication([
     ('/', MainPageHandler),
     ('/booking', BookingHandler),
@@ -71,4 +83,5 @@ app = webapp2.WSGIApplication([
     ('/translate', TranslatorHandler),
     ('/fetchlocationweather/([\w %]*)', FetchWeatherLocationHandler),
     ('/fetchweather/(\d+)', FetchWeatherHandler),
+    ('/fetchtranslate/([\w %]*)/(\w*)', FetchTranslationHandler),
     ], debug=True)

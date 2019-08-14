@@ -85,6 +85,14 @@ class FetchTranslationHandler(webapp2.RequestHandler):
         self.response.headers['Content-Type'] = 'application/json'
         self.response.write(translation)
 
+class ContactHandler(webapp2.RequestHandler):
+    def get(self):
+        template = jinja_env.get_template('templates/contact.html')
+        self.response.write(template.render())
+    def post(self):
+        print('big success')
+        self.response.write('hola')
+
 app = webapp2.WSGIApplication([
     ('/', MainPageHandler),
     ('/booking', BookingHandler),
@@ -94,4 +102,5 @@ app = webapp2.WSGIApplication([
     ('/fetchlocationweather/([\w %]*)', FetchWeatherLocationHandler),
     ('/fetchweather/(\d+)', FetchWeatherHandler),
     ('/fetchtranslate/([\w %]*)/(\w*)', FetchTranslationHandler),
+    ('/contact-us', ContactHandler),
     ], debug=True)

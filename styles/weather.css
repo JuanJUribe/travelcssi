@@ -1,0 +1,17 @@
+.title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+}
+
+.weather,
+.sun-set,
+.sun-rise,
+.timezone {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}

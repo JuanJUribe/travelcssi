@@ -42,5 +42,41 @@ function getWeather(locationID){
         .then(jsonResult => {
           weatherResponse = jsonResult;
           console.log(weatherResponse);
-        })
+
+          const newDivv = $('<div/>', {
+            class: 'title',
+            html: weatherResponse.title
+          })
+          document.body.append(newDivv[0]);
+
+        const weatherData = weatherResponse.consolidated_weather[0];
+          const newDiivv = $('<div/>', {
+            class: 'weather',
+              html: `<img width=70 src="https://www.metaweather.com/static/img/weather/${weatherData.weather_state_abbr}.svg"><br>
+                    Date: ${weatherData.applicable_date}<br>
+                    Humidity: ${weatherData.humidity + '%'}<br>`
+
+            })
+            document.body.append(newDiivv[0]);
+
+
+        const newDev = $('<div/>', {
+            class: 'sun-rise',
+            html: 'Sunrise: ' + weatherResponse.sun_rise.substring(weatherResponse.sun_rise.indexOf("T")+1, weatherResponse.sun_rise.indexOf("."))
+          })
+
+          document.body.append(newDev[0]);
+
+          const newDiiv = $('<div/>', {
+              class: 'sun-set',
+              html: 'Sunset: ' + weatherResponse.sun_set.substring(weatherResponse.sun_set.indexOf("T")+1, weatherResponse.sun_rise.indexOf("."))
+            })
+            document.body.append(newDiiv[0]);
+
+            const newDeb = $('<div/>', {
+                class: 'timezone',
+                html: 'Time zone: ' + weatherResponse.timezone
+              })
+              document.body.append(newDeb[0]);
+      })
 }

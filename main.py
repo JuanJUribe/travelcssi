@@ -8,8 +8,7 @@ import logging
 from google.cloud import translate
 from pprint import pformat
 
-from flask import jsonify
-
+# from flask import jsonify
 
 jinja_env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -18,18 +17,17 @@ jinja_env = jinja2.Environment(
 
 class MainPageHandler(webapp2.RequestHandler):
     def get(self):
+            base_url = "https://fourtonfish.com/hellosalut/?mode=auto";
+            response = urlfetch.fetch(base_url, method=urlfetch.POST).content;
+            results = json.loads(response);
+            formattedResult = results["hello"];
+            # language = request.META['HTTP_ACCEPT_LANGUAGE']
+            logging.info("TEST: " + pformat(formattedResult));
+            template = jinja_env.get_template('templates/main.html')
+            self.response.write(template.render({
+                "results":results
+            }))
 
-        base_url = "https://fourtonfish.com/hellosalut/?mode=auto";
-        response = urlfetch.fetch(base_url, method=urlfetch.POST).content;
-        results = json.loads(response);
-        formattedResult = results["hello"];
-        # language = request.META['HTTP_ACCEPT_LANGUAGE']
-        logging.info("TEST: " + pformat(formattedResult));
-        print(results)
-        template = jinja_env.get_template('templates/main.html')
-        self.response.write(template.render({
-            "results":formattedResult
-        }))
 
 class BookingHandler(webapp2.RequestHandler):
     def get(self):
@@ -69,37 +67,41 @@ class TranslatorHandler(webapp2.RequestHandler):
 class FetchTranslationHandler(webapp2.RequestHandler):
     def get(self, originalText, target):
         translate_client = translate.Client()
+
         translation = translate_client.translate(
             originalText,
             target_language=target)
+
+        translation = json.dumps(translation)
+
         self.response.headers['Content-Type'] = 'application/json'
         self.response.write(translation)
 
-class FakeHandler(webapp2.RequestHandler):
-    def get(self):
-        try:
-            logging.info("FAKE HANDLER ...")
-
-            content = {
-              "brand": "Ford",
-              "model": "Mustang",
-              "year": 1964
-            }
-            logging.info("PFORMAT CONTENT:")
-            logging.info(pformat(content))
-
-            dump = json.dumps(content)
-            logging.info("JSON DUMP CONTENT:")
-            logging.info(dump)
-
-            # jsonify = jsonify(content)
-            # logging.info("PFORMAT JSON:")
-            # logging.info(jsonify)
-
-            self.response.headers['Content-Type'] = 'application/json'
-            self.response.write(dump)
-        except:
-            print("BAD")
+# class FakeHandler(webapp2.RequestHandler):
+#     def get(self):
+#         try:
+#             logging.info("FAKE HANDLER ...")
+#
+#             content = {
+#               "brand": "Ford",
+#               "model": "Mustang",
+#               "year": 1964
+#             }
+#             logging.info("PFORMAT CONTENT:")
+#             logging.info(pformat(content))
+#
+#             dump = json.dumps(content)
+#             logging.info("JSON DUMP CONTENT:")
+#             logging.info(dump)
+#
+#             # jsonify = jsonify(content)
+#             # logging.info("PFORMAT JSON:")
+#             # logging.info(jsonify)
+#
+#             self.response.headers['Content-Type'] = 'application/json'
+#             self.response.write(dump)
+#         except:
+#             print("BAD")
 
 app = webapp2.WSGIApplication([
     ('/', MainPageHandler),

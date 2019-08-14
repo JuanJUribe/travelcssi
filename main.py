@@ -9,6 +9,8 @@ import logging
 from google.cloud import translate
 from pprint import pformat
 
+from models import User
+
 jinja_env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
     extensions=['jinja2.ext.autoescape'],
@@ -18,24 +20,50 @@ class MainPageHandler(webapp2.RequestHandler):
     def get(self):
         login_url = None
         logout_url = None
-        user =users.get_current_user()
+        user = users.get_current_user()
         if user:
             logout_url = users.create_logout_url('/')
         else:
-            login_url = users.create_login_url('/')
-        base_url = "https://fourtonfish.com/hellosalut/?mode=auto";
-        response = urlfetch.fetch(base_url, method=urlfetch.POST).content;
-        results = json.loads(response);
-        formattedResult = results["hello"];
+            login_url = users.create_login_url('/check-user')
+
+        # base_url = "https://fourtonfish.com/hellosalut/?mode=auto";
+        # response = urlfetch.fetch(base_url, method=urlfetch.POST).content;
+        # results = json.loads(response);
+        # formattedResult = results["hello"];
         # language = request.META['HTTP_ACCEPT_LANGUAGE']
-        logging.info("TEST: " + pformat(formattedResult));
+        # logging.info("TEST: " + pformat(formattedResult));
+
         template = jinja_env.get_template('templates/main.html')
         self.response.write(template.render({
-            "results":results,
+            # "results":results,
             'login_url':login_url,
             'logout_url':logout_url
         }))
 
+class CheckUserHandler(webapp2.RequestHandler):
+    def get(self):
+        google_user = users.get_current_user()
+        if google_user:
+            user = User.query().filter(User.email == google_user.email())
+            if user:
+                return self.redirect('/profile')
+            else:
+                return self.redirect('/profile')
+
+class ProfileHandler(webapp2.RequestHandler):
+    def get(self):
+        template = jinja_env.get_template('templates/get-profile.html')
+        self.response.write(template.render())
+    def post(self):
+        first_name = self.request.get('first_name')
+        last_name = self.request.get('last_name')
+        country = self.request.get('country')
+        template = jinja_env.get_template('templates/post-profile.html')
+        self.response.write(template.render({
+            'first_name' : first_name,
+            'last_name' : last_name,
+            'country' : country,
+        }))
 
 class BookingHandler(webapp2.RequestHandler):
     def get(self):
@@ -87,6 +115,8 @@ class FetchTranslationHandler(webapp2.RequestHandler):
 
 app = webapp2.WSGIApplication([
     ('/', MainPageHandler),
+    ('/check-user', CheckUserHandler),
+    ('/profile', ProfileHandler),
     ('/booking', BookingHandler),
     ('/currency-exchange', CurrencyExchangeHandler),
     ('/weather', WeatherHandler),

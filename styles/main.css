@@ -29,53 +29,57 @@ body {
   }
 
   header {
-    background: #eaeaea;
+    background-color: #C7D5DA;
     display: flex;
     align-items: center;
     justify-content: flex-end;
   }
 
 
-#header {
-  background: rgba(0,0,0,0.9);
-  width: 100%;
-  position: fixed;
-  z-index: 100;
-  background-color: white;
-}
+  #header {
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+    background-color: #C7D5DA;
+    position: fixed;
+    top: 0;
+    overflow: hidden;
+  }
 
-nav {
-  float: left;
-}
-
-nav ul {
-  list-style: none;
-  overflow: hidden;
-}
-
-nav ul li {
-  float: left;
-  font-family: kepler-std-semicondensed-dis,serif;
-  font-weight: 700;
-  font-style: normal;
-  font-size: 16px;
-}
-
-nav ul li a {
-  display: block;
-  padding: 20px;
-  color: black;
-  text-decoration: none;
-}
-
-nav ul li:hover {
-  background: lightgrey;
-}
-
-* {
-  padding: 0;
-  margin: 0;
-}
+  nav {
+    float: left;
+  }
+  
+  nav ul {
+    list-style: none;
+    overflow: hidden;
+  }
+  
+  nav ul li {
+    float: left;
+    font-family: kepler-std-semicondensed-dis,serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 16px;
+    background-color: #C7D5DA;
+  }
+  
+  nav ul li a {
+    display: block;
+    padding: 10px;
+    color: black;
+    text-decoration: none;
+  }
+  
+  nav ul li:hover {
+    background: lightgrey;
+  }
+  
+  * {
+    padding: 0;
+    margin: 0;
+  }
+  
 
   .booking,
   .translator,
@@ -117,7 +121,7 @@ nav ul li:hover {
     margin-right: 5px;
     margin-bottom: 5px;
     margin-top: 10px;
-    font-family: kepler-std-semicondensed-dis,serif;
+    /* font-family: josefin-sans,sans-serif; */
     font-weight: 700;
     font-style: normal;
 }
@@ -134,7 +138,7 @@ nav ul li:hover {
     text-shadow: 2px 2px 4px black;
     margin-right: 10px;
     margin-top: 5px;
-    font-family: kepler-std-semicondensed-dis,serif;
+    /* font-family: josefin-sans,sans-serif; */
     font-weight: 700;
     font-style: normal;
   }
@@ -147,11 +151,11 @@ nav ul li:hover {
     background-position: center;
     font-size: 50px;
     color: white;
-    text-shadow: 2px 2px 4px black;
+    /* text-shadow: 2px 2px 4px black; */
     margin-left: 10px;
     margin-right: 5px;
     margin-top: 5px;
-    font-family: kepler-std-semicondensed-dis,serif;
+    font-family: josefin-sans,sans-serif;
     font-weight: 700;
     font-style: normal;
   }
@@ -164,12 +168,12 @@ nav ul li:hover {
   background-position: center;
   font-size: 50px;
   color: white;
-  text-shadow: 2px 2px 4px black;
+  /* text-shadow: 2px 2px 4px black; */
   margin-left: 5px;
   margin-right: 10px;
   margin-bottom: 5px;
   margin-top: 10px;
-  font-family: kepler-std-semicondensed-dis,serif;
+  font-family: josefin-sans,sans-serif;
     font-weight: 700;
     font-style: normal;
 }
@@ -179,9 +183,9 @@ nav ul li:hover {
      align-items: center;
      justify-content: center;
      color: black;
-     font-family: kepler-std-semicondensed-dis,serif;
-     font-weight: 700;
-     font-style: normal;
+     font-family: josefin-sans,sans-serif;
+    font-weight: 700;
+    font-style: normal;
   }
 
   /* footer{

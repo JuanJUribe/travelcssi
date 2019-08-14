@@ -23,10 +23,11 @@ body{
     font-style: normal;
     font-size: 15px;
     color: #013B52;
-    height: 30px;
-/*     background-size: cover;
-    background: linear-gradient(#F15E2F, #DBB1CC);
-    background-repeat: no-repeat; */
+    height: 100vh;
+    background-size: cover;
+    background-color: #EDF1F0;
+    background: linear-gradient(white, #E1EAE9);
+    background-repeat: no-repeat;
 
 }
 
@@ -88,33 +89,66 @@ form{
 .bio2{
     grid-column: 2;
     grid-row: 4;
-    font-size: 15px;
+    font-size: 13px;
     text-align: left;
     font-family: josefin-sans,sans-serif;
     font-weight: 200;
     font-style: normal;
+    margin-right: 30%;
 }
 
-.navbar {
-    overflow: hidden;
+header {
     background-color: #C7D5DA;
-    color: black;
-    position: fixed; /* Set the navbar to fixed position */
-    top: 0; /* Position the navbar at the top of the page */
-    width: 100%; /* Full width */
-
-    height: 25px;
-    font-size: 15px;
-    font-weight: bold;
-    font-family: kepler-std-semicondensed-dis,serif;
-    font-weight: 700;
-    font-style: normal;
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
     align-items: center;
-    text-align: center;
+    justify-content: flex-end;
+  }
+
+
+#header {
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+  background-color: #C7D5DA;
+  position: fixed;
+  top: 0;
+  overflow: hidden;
 }
+
+nav {
+  float: left;
+}
+
+nav ul {
+  list-style: none;
+  overflow: hidden;
+}
+
+nav ul li {
+  float: left;
+  font-family: kepler-std-semicondensed-dis,serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 16px;
+  background-color: #C7D5DA;
+}
+
+nav ul li a {
+  display: block;
+  padding: 10px;
+  color: black;
+  text-decoration: none;
+}
+
+nav ul li:hover {
+  background: lightgrey;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
 
 p {
     display: inline;

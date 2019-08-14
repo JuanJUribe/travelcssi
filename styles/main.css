@@ -55,7 +55,9 @@ nav ul {
 
 nav ul li {
   float: left;
-  font-family: Arial, sans-serif;
+  font-family: kepler-std-semicondensed-dis,serif;
+  font-weight: 700;
+  font-style: normal;
   font-size: 16px;
 }
 
@@ -115,7 +117,9 @@ nav ul li:hover {
     margin-right: 5px;
     margin-bottom: 5px;
     margin-top: 10px;
-    font-family: 'Lexend Zetta', sans-serif;
+    font-family: kepler-std-semicondensed-dis,serif;
+    font-weight: 700;
+    font-style: normal;
 }
 
   .weather {
@@ -130,7 +134,9 @@ nav ul li:hover {
     text-shadow: 2px 2px 4px black;
     margin-right: 10px;
     margin-top: 5px;
-    font-family: 'Lexend Zetta', sans-serif;
+    font-family: kepler-std-semicondensed-dis,serif;
+    font-weight: 700;
+    font-style: normal;
   }
 
   .currency {
@@ -145,7 +151,9 @@ nav ul li:hover {
     margin-left: 10px;
     margin-right: 5px;
     margin-top: 5px;
-    font-family: 'Lexend Zetta', sans-serif;
+    font-family: kepler-std-semicondensed-dis,serif;
+    font-weight: 700;
+    font-style: normal;
   }
 
 .translator {
@@ -161,7 +169,9 @@ nav ul li:hover {
   margin-right: 10px;
   margin-bottom: 5px;
   margin-top: 10px;
-  font-family: 'Lexend Zetta', sans-serif;
+  font-family: kepler-std-semicondensed-dis,serif;
+    font-weight: 700;
+    font-style: normal;
 }
   footer{
      background: none;
@@ -169,4 +179,16 @@ nav ul li:hover {
      align-items: center;
      justify-content: center;
      color: black;
+     font-family: kepler-std-semicondensed-dis,serif;
+     font-weight: 700;
+     font-style: normal;
   }
+
+  /* footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    position: fixed; 
+    bottom: 0; 
+ } */

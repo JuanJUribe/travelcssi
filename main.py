@@ -27,7 +27,10 @@ class MainPageHandler(webapp2.RequestHandler):
         base_url = "https://fourtonfish.com/hellosalut/?";
         time.sleep(1)
         if user:
-            language = User.query().filter(User.email == user.email()).get().language
+            try:
+                language = User.query().filter(User.email == user.email()).get().language
+            except:
+                language = 'en'
             params={
                 'cc':language
             }

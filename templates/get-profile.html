@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h3>Update</h3>
+
+    <div class="container" id='OnSubmit'>
+      <form action="/profile" method='post'>
+        <label for="first_name">First Name</label>
+        <input type="text" id="first_name" name="first_name" placeholder="Your name..">
+
+        <label for="last_name">Last Name</label>
+        <input type="text" id="last_name" name="last_name" placeholder="Your last name..">
+
+        <label for="country">Country</label>
+        <select id="country" name="country">
+          <option id='selectCountry' value='selectCountry'>Select</option>
+        </select>
+
+        <label for="city">City</label>
+        <input type="text" id="city" name="city" placeholder="City">
+
+        <label for="currency">Currency</label>
+        <select id="currency" name="currency">
+          <option id='selectCurrency' value='selectCurrency'>Select</option>
+        </select>
+
+        <label for="language">Lenguage</label>
+        <select id="language" name="language">
+          <option value="es">Spanish</option>
+          <option value="en">English</option>
+          <option value="de">German</option>
+        </select>
+
+        <input type ='submit'>
+      </form>
+    </div>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src='scripts/profile.js'></script>
+  </body>
+</html>

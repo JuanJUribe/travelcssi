@@ -6,10 +6,15 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="/styles/main.css">
     <script src="scripts/main.js">
-
     </script>
     <title>Main Page</title>
     <header id='header'>
+      {% if logout_url %}
+        <a href= '{{ logout_url }}'>Sign out</a>
+      {% endif %}
+      {% if login_url %}
+        <a href= '{{ login_url }}'>Sign in</a>
+      {% endif %}
 	<nav>
 		<ul>
 			<li><a href="/">MAIN</a></li>
@@ -17,6 +22,7 @@
       <li><a href="/translate">TRANSLATOR</a></li>
       <li><a href="/currency-exchange">CURRENCY EXCHANGE</a></li>
       <li><a href="/weather">WEATHER</a></li>
+      <li><a href="/contact-us">CONTACT US</a></li>
 		</ul>
 	</nav>
 </header>
@@ -32,6 +38,10 @@
   <main><span>Currency Exchange</span></main></div>
 <div class="weather menu">
   <main><span>Weather</span></main></div>
+
+  <main><span>Contact Us</span></main></div>
+<div class="contact">
+  <main><span>Contact us</span></main></div>
 
 <footer>
   This site is &copyAPOLLOTRAVEL 2019

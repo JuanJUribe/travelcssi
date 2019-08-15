@@ -27,11 +27,23 @@ function translation(){
     promise
         .then(result => result.json())
         .then(jsonResult => {
-          console.log("JSON RESULT:")
-          console.log(jsonResult);
           resultBox.textContent = jsonResult['translatedText'];
           detectedLang = jsonResult['detectedSourceLanguage'];
-          console.log(detectedLang);
           detectedLangBox.textContent = 'Detected Language - '+detectedLang
       })
 }
+
+let langResponse;
+
+const langPromise = fetch('/fetchsupportedlangs');
+langPromise
+    .then(result => result.json())
+    .then(jsonResult => {
+      langResponse = jsonResult;
+      console.log('JSON RESULT:')
+      console.log(langResponse)
+
+      for (let lang in langResponse){
+        $('#autoLang').after('<option value='+langResponse[lang]['language']+'>'+langResponse[lang]['name']+'</option>');
+      }
+    })

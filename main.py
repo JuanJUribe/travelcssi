@@ -124,6 +124,14 @@ class FetchCountryHandler(webapp2.RequestHandler):
         response = urlfetch.fetch(base_url).content
         self.response.write(response)
 
+class ContactHandler(webapp2.RequestHandler):
+    def get(self):
+        template = jinja_env.get_template('templates/contact.html')
+        self.response.write(template.render())
+    def post(self):
+        print('big success')
+        self.response.write('hola')
+
 app = webapp2.WSGIApplication([
     ('/', MainPageHandler),
     ('/check-user', CheckUserHandler),
@@ -135,5 +143,6 @@ app = webapp2.WSGIApplication([
     ('/fetchlocationweather/([\w %]*)', FetchWeatherLocationHandler),
     ('/fetchweather/(\d+)', FetchWeatherHandler),
     ('/fetchtranslate/([\w %]*)/(\w*)', FetchTranslationHandler),
-    ('/fetchcountry', FetchCountryHandler)
+    ('/fetchcountry', FetchCountryHandler),
+    ('/contact-us', ContactHandler),
     ], debug=True)

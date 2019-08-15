@@ -5,7 +5,7 @@
     <title></title>
   </head>
   <body>
-    <h3>Contact Us</h3>
+    <h3>UpDate</h3>
 
     <div class="container" id='OnSubmit'>
       <form action="/profile" method='post'>
@@ -17,31 +17,19 @@
 
         <label for="country">Country</label>
         <select id="country" name="country">
-          <option value="choose">	Choose your country</option>
-          <option value="afghanistan">Afghanistan</option>
-          <option value="albania">Albania	</option>
-          <option value="algeria">Algeria</option>
-          <option value="andorra">Andorra</option>
+          <option id='selectCountry' value='selectCountry'>Select</option>
         </select>
 
         <label for="city">City</label>
-        <select id="city" name="city">
-          <option value="choose">	Choose your country</option>
-          <option value="afghanistan">Afghanistan</option>
-          <option value="albania">Albania	</option>
-          <option value="algeria">Algeria</option>
-          <option value="andorra">Andorra</option>
-        </select>
+        <input type="text" id="city" name="city" placeholder="City">
 
         <label for="currency">Currency</label>
         <select id="currency" name="currency">
-          <option value="USD">USD</option>
-          <option value="COP">COP</option>
-          <option value="EUR">EUR	</option>
+          <option id='selectCurrency' value='selectCurrency'>Select</option>
         </select>
 
-        <label for="lenguage">Lenguage</label>
-        <select id="lenguage" name="lenguage">
+        <label for="language">Lenguage</label>
+        <select id="language" name="language">
           <option value="es">Spanish</option>
           <option value="en">English</option>
           <option value="de">German</option>
@@ -50,5 +38,7 @@
         <input type ='submit'>
       </form>
     </div>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src='scripts/profile.js'></script>
   </body>
 </html>

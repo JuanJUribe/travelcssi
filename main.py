@@ -118,6 +118,12 @@ class FetchTranslationHandler(webapp2.RequestHandler):
         self.response.headers['Content-Type'] = 'application/json'
         self.response.write(translation)
 
+class FetchCountryHandler(webapp2.RequestHandler):
+    def get(self):
+        base_url = 'http://countryapi.gear.host/v1/Country/getCountries'
+        response = urlfetch.fetch(base_url).content
+        self.response.write(response)
+
 app = webapp2.WSGIApplication([
     ('/', MainPageHandler),
     ('/check-user', CheckUserHandler),
@@ -129,4 +135,5 @@ app = webapp2.WSGIApplication([
     ('/fetchlocationweather/([\w %]*)', FetchWeatherLocationHandler),
     ('/fetchweather/(\d+)', FetchWeatherHandler),
     ('/fetchtranslate/([\w %]*)/(\w*)', FetchTranslationHandler),
+    ('/fetchcountry', FetchCountryHandler)
     ], debug=True)

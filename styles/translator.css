@@ -34,6 +34,13 @@
   /*     margin: 100px;*/
   
   } 
+  }
+
+
+span {
+  padding: 10px;
+}
+
 
   body{
       display: grid;
@@ -51,11 +58,13 @@
       background-repeat: no-repeat;
   }
   
+
   section{
       grid-column: 1;
       grid-row: 2;
   }
   
+
   header {
     background-color: #C7D5DA;
     display: flex;
@@ -64,6 +73,7 @@
   }
   
   
+
   #header {
   width: 100%;
   position: fixed;
@@ -74,11 +84,13 @@
   overflow: hidden;
   }
   
+
   .image{
     grid-column: 2;
     grid-row: 2;
   }
   
+
   .bio1{
     grid-column: 2;
     grid-row: 3;
@@ -86,6 +98,7 @@
     text-align: left;
   }
   
+
   .bio2{
     grid-column: 2;
     grid-row: 4;
@@ -98,16 +111,16 @@
     margin-right: 30%;
     width: 50vh;
   }
-  
+
   nav {
   float: left;
   }
-  
+
   nav ul {
   list-style: none;
   overflow: hidden;
   }
-  
+
   nav ul li {
   float: left;
   font-family: kepler-std-semicondensed-dis,serif;
@@ -116,25 +129,25 @@
   font-size: 16px;
   background-color: #C7D5DA;
   }
-  
+
   nav ul li a {
   display: block;
   padding: 10px;
   color: #013B52;
   text-decoration: none;
   }
-  
+
   nav ul li:hover {
   background: lightgrey;
   }
-  
+
   * {
   padding: 0;
   margin: 0;
   }
-  
-  
-  
+
+
+
   footer{
        display: flex;
        align-items: center;
@@ -143,4 +156,4 @@
        position: fixed; /* Set the navbar to fixed position */
        bottom: 0; /* Position the navbar at the top of the page */
     background-color: #E1EAE9;
-    }
+    }    }

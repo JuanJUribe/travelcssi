@@ -2,6 +2,54 @@
 body {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box;}
 
+header,
+footer {
+  grid-column: 1 / span 2;
+}
+
+body {
+  background-size: cover;
+  background: linear-gradient(white, #C7D5DA);
+  background-color: #C7D5DA;
+  background-repeat: no-repeat;
+}
+
+label {
+  margin: 10px;
+}
+
+h1 {
+  color: #8BACB9;
+  font-family: josefin-sans,sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 80px;
+  margin: 50px;
+}
+
+
+label {
+  margin-top: 30px;
+  grid-column: 1;
+  grid-row: 1;
+  font-size: 20px;
+  width: 100%;
+  color: #013B52;
+  font-family: josefin-sans, sans-serif;
+  font-weight: 200;
+}
+
+#New{
+  margin-top: 30px;
+  grid-column: 1;
+  grid-row: 1;
+  font-size: 20px;
+  width: 100%;
+  color: #013B52;
+  font-family: josefin-sans, sans-serif;
+  font-weight: 200;
+}
+
 input[type=text], select, textarea {
   width: 100%;
   padding: 12px;
@@ -14,7 +62,7 @@ input[type=text], select, textarea {
 }
 
 input[type=submit] {
-  background-color: #4CAF50;
+  background-color: #C7D5DA;
   color: white;
   padding: 12px 20px;
   border: none;
@@ -23,14 +71,81 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-  background-color: #45a049;
+  background-color: #C7D5DA;
 }
 
 .container {
   border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
 }
-#New {
-  display: none;
+
+header {
+  background-color: #C7D5DA;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
+
+
+#header {
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+  background-color: #C7D5DA;
+  position: fixed;
+  top: 0;
+  overflow: hidden;
+}
+
+nav {
+  float: left;
+}
+
+nav ul {
+  list-style: none;
+  overflow: hidden;
+}
+
+nav ul li {
+  float: left;
+  font-family: kepler-std-semicondensed-dis,serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 16px;
+  background-color: #C7D5DA;
+}
+
+nav ul li a {
+  display: block;
+  padding: 10px;
+  color: #013B52;
+  text-decoration: none;
+}
+
+nav ul li:hover {
+  background: lightgrey;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+footer{
+   background: none;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   color: black;
+   font-family: kepler-std-semicondensed-dis, serif;
+  font-weight: 700;
+  font-style: normal;
+  position: fixed;
+  bottom: 0;
+  background-color: #E1EAE9;
+  }

@@ -186,6 +186,7 @@ class ContactHandler(webapp2.RequestHandler):
                 'lastName':user.last_name,
                 'country':user.country,
                 'email':user.email,
+                'isForm': True,
             }))
         else:
             return self.redirect('/profile')
@@ -194,8 +195,8 @@ class ContactHandler(webapp2.RequestHandler):
         user_key = User.query().filter(User.email == google_user.email()).get().key
         subject = self.request.get('subject')
         ContactMessage(user=user_key, message=subject).put()
-        template = jinja_env.get_template('templates/post-contact.html')
-        self.response.write(template.render())
+        template = jinja_env.get_template('templates/contact.html')
+        self.response.write(template.render({'isForm': False}))
 
 class AdminContactHandler(webapp2.RequestHandler):
     def get(self):

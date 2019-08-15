@@ -5,11 +5,9 @@
     <link rel="stylesheet" href="/styles/contact.css">
   </head>
   <body>
-
     <h3>Contact Us</h3>
-
     <div class="container" id='OnSubmit'>
-      <form>
+      <form action='/contact-us' method='post'>
 
         <br><label for="fname">First Name</label>
         <br><span id="fname" name="fname">{{ firstName }}</span>
@@ -26,11 +24,8 @@
         <br><label for="subject">Subject</label>
         <textarea id="subject" name="subject" placeholder="Contact us" style="height:200px"></textarea>
 
-        <input type="button" value="Submit" onclick="onSubmit()">
+        <input type="Submit">
       </form>
     </div>
-    <div id="New">Thank you for your comments! We will return to you as soon as we can!</div>
-    <script type="text/javascript" src='scripts/contact.js'>
-    </script>
   </body>
 </html>

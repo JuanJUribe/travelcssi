@@ -10,8 +10,7 @@ from google.cloud import translate
 from pprint import pformat
 from HTMLParser import HTMLParser
 import time
-
-from models import User
+from models import User, ContactMessage
 
 jinja_env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -182,6 +181,32 @@ class ContactHandler(webapp2.RequestHandler):
             }))
         else:
             return self.redirect('/profile')
+    def post(self):
+        google_user = users.get_current_user()
+        user_key = User.query().filter(User.email == google_user.email()).get().key
+        subject = self.request.get('subject')
+        ContactMessage(user=user_key, message=subject).put()
+        template = jinja_env.get_template('templates/post-contact.html')
+        self.response.write(template.render())
+
+class AdminContactHandler(webapp2.RequestHandler):
+    def get(self):
+        template = jinja_env.get_template('templates/admin-contact.html')
+        self.response.write(template.render())
+
+class FetchAdminContactHandler(webapp2.RequestHandler):
+    def get(self):
+        messages = ContactMessage.query().fetch()
+        messages = ContactMessage.query().fetch()
+        messages_list = []
+        for message_item in messages:
+            current_user = User.query().filter(User.key==message_item.user).get().email
+            messages_list.append({
+                'message':message_item.message,
+                'user':current_user})
+        messages_list = json.dumps(messages_list)
+        self.response.headers['Content-Type'] = 'application/json'
+        self.response.write(messages_list)
 
 app = webapp2.WSGIApplication([
     ('/', MainPageHandler),
@@ -196,4 +221,6 @@ app = webapp2.WSGIApplication([
     ('/fetchtranslate/([\w %]*)/(\w*)', FetchTranslationHandler),
     ('/fetchcountry', FetchCountryHandler),
     ('/contact-us', ContactHandler),
+    ('/admin-contact', AdminContactHandler),
+    ('/fetch-admin-contact', FetchAdminContactHandler),
     ], debug=True)

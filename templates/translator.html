@@ -2,23 +2,48 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="https://use.typekit.net/mdr8lxf.css">
     <link rel="stylesheet" href="/styles/translator.css">
     <title>Translator Page</title>
+    <header id='header'>
+        <nav>
+          <ul>
+            <li><a href="/">MAIN</a></li>
+            <li><a href="/booking">BOOKING</a></li>
+            <li><a href="/translate">TRANSLATOR</a></li>
+            <li><a href="/currency-exchange">CURRENCY EXCHANGE</a></li>
+            <li><a href="/weather">WEATHER</a></li>
+            <li><a href="/contact-us">CONTACT US</a></li>
+          </ul>
+        </nav>
+      </header>
   </head>
   <body>
-    <h1>Translator Page</h1>
+    <h1>TRANSLATOR</h1>
     <section>
       <select id ='inputLang'>
-        <option id='autoLang'>Auto</option>
+        <p><option id='autoLang'>Auto</option></p>
       </select>
-      <textarea name='inputBox' id='inputBox' rows="10" cols="30">Type text to translate</textarea>
-			<button id='translateButton'>Translate</button>
-      <textarea name='resultBox' id='resultBox' rows="10" cols="30">Translation</textarea>
+      <p><textarea name='inputBox' id='inputBox' rows="10" cols="30">Type text to translate</textarea></p>
+      <p><button id='translateButton'>Translate</button></p>
+      <p><textarea name='resultBox' id='resultBox' rows="10" cols="30">Translation</textarea></p>
       <select id ='outputLang'>
-        <option id='es' value='es'>Spanish</option>
+        <p><option id='es' value='es'>Spanish</option></p>
       </select>
     </section>
+    <div class="image">
+            <img src= "https://i.pinimg.com/564x/93/f4/80/93f48007ae7ff3c63af31dc786de2982.jpg" alt="image" height=500vh width=400vh >
+     </div>
+    <div class="bio1">
+      <p>Saint-Jean-sur-Richelieu, Quebec</p>
+    </div>
+    <div class="bio2">
+      <p>   Saint-Jean-sur-Richelieu is a city in eastern Montérégie in the Canadian province of Quebec, about 40 kilometres southeast of Montreal. It is situated on the west bank of the Richelieu River at the northernmost navigable point of Lake Champlain. As of 2016 the population of Saint-Jean-Sur-Richelieu was 95,114.</p>
+    </div>
     <script type="text/javascript" src='scripts/translate.js'>
     </script>
+<footer>
+  This site is &copyAPOLLOTRAVEL 2019
+</footer>
   </body>
 </html>

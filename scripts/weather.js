@@ -72,7 +72,7 @@ function getWeather(locationID){
               html: 'Sunset: ' + weatherResponse.sun_set.substring(weatherResponse.sun_set.indexOf("T")+1, weatherResponse.sun_rise.indexOf("."))
             })
             document.body.append(newDiiv[0]);
-
+g
             const newDeb = $('<div/>', {
                 class: 'timezone',
                 html: 'Time zone: ' + weatherResponse.timezone

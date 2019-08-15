@@ -1,0 +1,25 @@
+h1{
+    display: flex;
+      align-items: center;
+      height: 100px;
+      font-size: 80px;
+      color: #8BACB9;
+      font-family: josefin-sans,sans-serif;
+      font-weight: 700;
+      font-style: normal;
+      margin: 20px;
+  }
+
+  body {
+        font-family: kepler-std-semicondensed-dis, serif;
+        font-weight: 700;
+        font-style: normal;
+        font-size: 20px;
+        color: #013B52;
+        height: 100vh;
+        margin-left: 40px;
+        background-size: cover;
+        background: linear-gradient(white, #C7D5DA);
+        background-color: #C7D5DA;
+        background-repeat: no-repeat;
+  }

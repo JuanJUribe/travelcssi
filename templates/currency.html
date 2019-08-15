@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en" dir="ltr">
   <head>
     <link rel="stylesheet" href="https://use.typekit.net/mdr8lxf.css">
@@ -41,14 +40,18 @@
         <p>Wondering just how much foreign currency you might need for your next trip?</p>
           <p>See how much you can recieve for your money in the currency converter below </p>
         </div>
-      
+
         <div class="value">
             <span id="enterValue">Enter Value:</span>
             </div>
       <div id='initial'>
         <input type='text 'name='value' id='inputValue'>
         <select id='initialCurrency'>
-          <option value='select' id='selectInitial'>Select</option>
+          {% if  currency %}
+            <option value='{{ currency }}' id='autoCurrency'>Auto - {{ currency }}</option>
+          {% else %}
+            <option value='select' id='selectInitial'>Select</option>
+          {% endif %}
         </select>
       </div>
       <div id='conversion'>

@@ -97,8 +97,21 @@ class BookingHandler(webapp2.RequestHandler):
 
 class CurrencyExchangeHandler(webapp2.RequestHandler):
     def get(self):
-        template = jinja_env.get_template('templates/currency.html')
-        self.response.write(template.render())
+        user = users.get_current_user()
+        time.sleep(1)
+        if user:
+            try:
+                currency = User.query().filter(User.email == user.email()).get().currency
+                template = jinja_env.get_template('templates/currency.html')
+                self.response.write(template.render({
+                    'currency':currency
+                }))
+            except:
+                template = jinja_env.get_template('templates/currency.html')
+                self.response.write(template.render())
+        else:
+            template = jinja_env.get_template('templates/currency.html')
+            self.response.write(template.render())
 
 class WeatherHandler(webapp2.RequestHandler):
     def get(self):
@@ -133,7 +146,8 @@ class TranslatorHandler(webapp2.RequestHandler):
                     'autoLang':auto_lang
                 }))
             except:
-                pass
+                template = jinja_env.get_template('templates/translator.html')
+                self.response.write(template.render())
         else:
             template = jinja_env.get_template('templates/translator.html')
             self.response.write(template.render())
@@ -141,13 +155,10 @@ class TranslatorHandler(webapp2.RequestHandler):
 class FetchTranslationHandler(webapp2.RequestHandler):
     def get(self, originalText, target):
         translate_client = translate.Client()
-
         translation = translate_client.translate(
             originalText,
             target_language=target)
-
         translation = json.dumps(translation)
-
         self.response.headers['Content-Type'] = 'application/json'
         self.response.write(translation)
 
@@ -163,7 +174,12 @@ class ContactHandler(webapp2.RequestHandler):
         user = User.query().filter(User.email == google_user.email()).get()
         if user:
             template = jinja_env.get_template('templates/contact.html')
-            self.response.write(template.render())
+            self.response.write(template.render({
+                'firstName':user.first_name,
+                'lastName':user.last_name,
+                'country':user.country,
+                'email':user.email,
+            }))
         else:
             return self.redirect('/profile')
 

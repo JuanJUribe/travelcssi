@@ -20,6 +20,13 @@ body {
   transition: transform .2s;
   }
 
+  /* .signin{
+    background-color: #C7D5DA;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  } */
+
   .menu:hover {
     -ms-transform: scale(1.04);
   -webkit-transform: scale(1.04);
@@ -29,8 +36,19 @@ body {
   body {
     margin: 0 auto;
     max-width: 100%;
-    background: linear-gradient(white, #E1EAE9);
+    background: linear-gradient(white, #C7D5DA);
   }
+
+  .an{
+    /* display: flex;
+    align-items: left;
+    justify-content: flex-start; */
+    color: #013B52;
+    font-family: kepler-std-semicondensed-dis,serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  a {text-decoration: none; }
 
   header {
     background-color: #C7D5DA;

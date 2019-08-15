@@ -27,17 +27,3 @@ countryPromise
         $('#selectCountry').after('<option value='+countryName+':'+countryLang+'>'+countryName+'</option>');
       }
     })
-
-// let countriesResponse;
-//
-// const languagePromise = fetch('');
-// languagePromise
-//     .then(result => result.json())
-//     .then(jsonResult => {
-//       languagesResponse = jsonResult;
-//
-//       for (let language in languagesResponse.Response){
-//         const countryName = countriesResponse.Response[countryNumber]['Name']
-//         $('#selectLanguage').after('<option value='+countryName+'>'+countryName+'</option>');
-//       }
-//     })

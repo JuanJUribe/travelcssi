@@ -161,8 +161,8 @@ class FetchTranslationHandler(webapp2.RequestHandler):
         self.response.headers['Content-Type'] = 'application/json'
         self.response.write(translation)
 
-class FetchSupportedLangs(webapp2.RequestHandler):
-    def get(self, originalText, target):
+class FetchSupportedLangsHandler(webapp2.RequestHandler):
+    def get(self):
         translate_client = translate.Client()
         langs = translate_client.get_languages()
         langs = json.dumps(langs)
@@ -232,5 +232,5 @@ app = webapp2.WSGIApplication([
     ('/contact-us', ContactHandler),
     ('/admin-contact', AdminContactHandler),
     ('/fetch-admin-contact', FetchAdminContactHandler),
-    ('/fetchsupportedlangs', FetchSupportedLangs),
+    ('/fetchsupportedlangs', FetchSupportedLangsHandler),
     ], debug=True)

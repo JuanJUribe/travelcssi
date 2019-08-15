@@ -44,6 +44,6 @@ langPromise
       console.log(langResponse)
 
       for (let lang in langResponse){
-        $('#autoLang').after('<option value='+lang['language']+'>'+lang['name']+'</option>');
+        $('#autoLang').after('<option value='+langResponse[lang]['language']+'>'+langResponse[lang]['name']+'</option>');
       }
     })

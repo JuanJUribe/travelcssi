@@ -8,6 +8,7 @@ from urllib import urlencode
 import logging
 from google.cloud import translate
 from pprint import pformat
+from HTMLParser import HTMLParser
 import time
 
 from models import User
@@ -35,8 +36,10 @@ class MainPageHandler(webapp2.RequestHandler):
             formattedResult = results["hello"];
             logging.info("TEST: " + pformat(formattedResult));
             logout_url = users.create_logout_url('/')
+            h = HTMLParser()
+            unescapedResult = h.unescape(formattedResult)
             self.response.write(template.render({
-                'results':formattedResult,
+                'results':unescapedResult,
                 'login_url':login_url,
                 'logout_url':logout_url
             }))
@@ -69,7 +72,11 @@ class ProfileHandler(webapp2.RequestHandler):
         last_name = self.request.get('last_name')
         country = self.request.get('country')
         countryName = country.split(':')[0]
-        language = country.split(':')[1]
+        language = 'en'
+        try:
+            language = country.split(':')[1]
+        except:
+            pass
         city = self.request.get('city')
         currency = self.request.get('currency')
         if users.get_current_user() is None:

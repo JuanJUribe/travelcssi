@@ -5,8 +5,20 @@
     <link rel="stylesheet" href="/styles/contact.css">
   </head>
   <body>
+    <header id='header'>
+        <nav>
+          <ul>
+            <li><a href="/">MAIN</a></li>
+            <li><a href="/booking">BOOKING</a></li>
+            <li><a href="/translate">TRANSLATOR</a></li>
+            <li><a href="/currency-exchange">CURRENCY EXCHANGE</a></li>
+            <li><a href="/weather">WEATHER</a></li>
+            <li><a href="/contact-us">CONTACT US</a></li>
+          </ul>
+        </nav>
+      </header>
 
-    <h3>Contact Us</h3>
+    <h1>CONTACT US</H1>
 
     <div class="container" id='OnSubmit'>
       <form>
@@ -14,16 +26,16 @@
         <br><label for="fname">First Name</label>
         <br><span id="fname" name="fname">{{ firstName }}</span>
 
-        <br><label for="lname">Last Name</label>
+        <br><br><label for="lname">Last Name</label>
         <br><span id="lname" name="lname">{{ lastName }}</span>
 
-        <br><label for="mail">E-mail</label>
+        <br><br><label for="mail">E-mail</label>
         <br><span id="mail" name="mail">{{ email }}</span>
 
-        <br><label for="country">Country</label>
+        <br><br><label for="country">Country</label>
         <br><span id="country" name="country">{{ country }}</span>
 
-        <br><label for="subject">Subject</label>
+        <br><br><label for="subject">Subject</label>
         <textarea id="subject" name="subject" placeholder="Contact us" style="height:200px"></textarea>
 
         <input type="button" value="Submit" onclick="onSubmit()">
@@ -32,5 +44,9 @@
     <div id="New">Thank you for your comments! We will return to you as soon as we can!</div>
     <script type="text/javascript" src='scripts/contact.js'>
     </script>
+
+    <footer>
+      This site is &copyAPOLLOTRAVEL 2019
+    </footer>
   </body>
 </html>

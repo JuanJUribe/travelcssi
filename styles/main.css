@@ -40,9 +40,7 @@ body {
   }
 
   .an{
-    /* display: flex;
-    align-items: left;
-    justify-content: flex-start; */
+
     color: #013B52;
     font-family: kepler-std-semicondensed-dis,serif;
     font-weight: 700;

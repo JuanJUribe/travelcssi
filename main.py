@@ -16,25 +16,29 @@ jinja_env = jinja2.Environment(
 
 class MainPageHandler(webapp2.RequestHandler):
     def get(self):
+        template = jinja_env.get_template('templates/main.html')
         login_url = None
         logout_url = None
         user =users.get_current_user()
         if user:
             logout_url = users.create_logout_url('/')
+            self.response.write(template.render({
+                'login_url':login_url,
+                'logout_url':logout_url
+            }))
         else:
-            login_url = users.create_login_url('/')
-        base_url = "https://fourtonfish.com/hellosalut/?mode=auto";
-        response = urlfetch.fetch(base_url, method=urlfetch.POST).content;
-        results = json.loads(response);
-        formattedResult = results["hello"];
-        # language = request.META['HTTP_ACCEPT_LANGUAGE']
-        logging.info("TEST: " + pformat(formattedResult));
-        template = jinja_env.get_template('templates/main.html')
-        self.response.write(template.render({
-            "results":results,
-            'login_url':login_url,
-            'logout_url':logout_url
-        }))
+            base_url = "https://fourtonfish.com/hellosalut/?mode=auto";
+            response = urlfetch.fetch(base_url, method=urlfetch.POST).content;
+            results = json.loads(response);
+            formattedResult = results["hello"];
+            # language = request.META['HTTP_ACCEPT_LANGUAGE']
+            logging.info("TEST: " + pformat(formattedResult));
+            template = jinja_env.get_template('templates/main.html')
+            self.response.write(template.render({
+                "results":results,
+                'login_url':login_url,
+                'logout_url':logout_url
+            }))
 
 
 class BookingHandler(webapp2.RequestHandler):

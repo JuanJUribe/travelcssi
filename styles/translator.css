@@ -1,28 +1,45 @@
-h1 {
-    display: flex;
-    align-items: center;
-    height: 100px;
-    font-size: 80px;
-    color: #8BACB9;
-    font-family: josefin-sans,sans-serif;
-    font-weight: 700;
-    font-style: normal;
-    margin: 40px;
-  }
+.translate{
+  margin: 50px;
+  grid-column: 1;
+  grid-row: 1;
+  align-items: left;
+  text-align: left;
+  font-size: 80px;
+  height: 1px;
+  width: 100%;
+  color: #8BACB9;
+  font-family: josefin-sans,sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
   
   section{
-    margin-top: 30px;
+    margin-top: 60px;
     text-align: center;
+    grid-column: 1;
+    grid-row: 1;
+    font-size: 40px;
+    font-weight: bold;
+    width: 70%;
+/*     margin: 100px;*/
   }
+
+  .caption{
+    margin-top: 30px;
+    grid-column: 1;
+    grid-row: 1;
+    font-size: 20px;
+    font-weight: bold;
+    width: 100%;
+  /*     margin: 100px;*/
+  
+  } 
 
   body{
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1fr 1fr 1fr;
       font-family: kepler-std-semicondensed-dis, serif;
-    
-    
-    
       font-weight: 700;
       font-style: normal;
       font-size: 15px;
@@ -60,16 +77,13 @@ h1 {
   .image{
     grid-column: 2;
     grid-row: 2;
-    margin-top: 20px;
   }
   
   .bio1{
     grid-column: 2;
     grid-row: 3;
-  /*     height: 28px; */
     font-size: 35px;
     text-align: left;
-    margin-top: 40px;
   }
   
   .bio2{
@@ -80,6 +94,7 @@ h1 {
     font-family: josefin-sans,sans-serif;
     font-weight: 200;
     font-style: normal;
+    height: 100vh;
     margin-right: 30%;
     width: 50vh;
   }

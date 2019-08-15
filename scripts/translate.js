@@ -1,6 +1,5 @@
 inputBox = document.querySelector('#inputBox');
 resultBox = document.querySelector('#resultBox');
-translateButton = document.querySelector('#translateButton');
 detectedLangBox = document.querySelector('#detectedLang');
 
 let target = 'de';
@@ -18,9 +17,10 @@ function eraseInputContent(){
   clicked = true;
 }
 
-translateButton.addEventListener('click', translation);
+inputBox.addEventListener('input', translation);
 
 function translation(){
+    console.log('translatio gonig on')
     originalText = inputBox.value;
     const path = '/fetchtranslate/'+originalText+'/'+target
     const promise = fetch(path);

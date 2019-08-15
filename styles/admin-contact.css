@@ -23,3 +23,17 @@ h1{
         background-color: #C7D5DA;
         background-repeat: no-repeat;
   }
+
+.messages{
+    border-style: solid;
+    margin: 10px;
+}
+
+.messageEmail{
+    font-style: bolder;
+    margin-left: 10px;
+}
+
+.messageContent{
+    margin-left: 25px;
+}

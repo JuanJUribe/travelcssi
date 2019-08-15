@@ -3,6 +3,7 @@ const startSection = document.querySelector('#startSection')
 let messagesResponse;
 
 const promise = fetch('/fetch-admin-contact');
+
 promise
     .then(result => result.json())
     .then(jsonResult => {

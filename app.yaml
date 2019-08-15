@@ -11,6 +11,9 @@ handlers:
   static_dir: scripts
 - url: /models
   static_dir: models
+- url: /contact-us
+  script: main.app
+  login: required
 - url: /.*
   script: main.app
 

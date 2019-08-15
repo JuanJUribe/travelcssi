@@ -45,7 +45,6 @@ class CheckUserHandler(webapp2.RequestHandler):
         google_user = users.get_current_user()
         if google_user:
             user = User.query().filter(User.email == google_user.email()).get()
-            # print('*******'+user)
             if user:
                 return self.redirect('/')
             else:
@@ -126,11 +125,13 @@ class FetchCountryHandler(webapp2.RequestHandler):
 
 class ContactHandler(webapp2.RequestHandler):
     def get(self):
-        template = jinja_env.get_template('templates/contact.html')
-        self.response.write(template.render())
-    def post(self):
-        print('big success')
-        self.response.write('hola')
+        google_user = users.get_current_user()
+        user = User.query().filter(User.email == google_user.email()).get()
+        if user:
+            template = jinja_env.get_template('templates/contact.html')
+            self.response.write(template.render())
+        else:
+            return self.redirect('/profile')
 
 app = webapp2.WSGIApplication([
     ('/', MainPageHandler),

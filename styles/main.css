@@ -71,12 +71,12 @@ body {
   nav {
     float: left;
   }
-  
+
   nav ul {
     list-style: none;
     overflow: hidden;
   }
-  
+
   nav ul li {
     float: left;
     font-family: kepler-std-semicondensed-dis,serif;
@@ -85,23 +85,23 @@ body {
     font-size: 16px;
     background-color: #C7D5DA;
   }
-  
+
   nav ul li a {
     display: block;
     padding: 10px;
     color: #013B52;
     text-decoration: none;
   }
-  
+
   nav ul li:hover {
     background: lightgrey;
   }
-  
+
   * {
     padding: 0;
     margin: 0;
   }
-  
+
 
   .booking,
   .translator,
@@ -150,7 +150,7 @@ body {
     font-style: normal;
     color: white;
   text-shadow:
-   -1px -1px 0 #013B52,  
+   -1px -1px 0 #013B52,
     1px -1px 0 #013B52,
     -1px 1px 0 #013B52,
      1px 1px 0 #013B52;
@@ -174,7 +174,7 @@ body {
     font-style: normal;
   color: white;
   text-shadow:
-   -1px -1px 0 #013B52,  
+   -1px -1px 0 #013B52,
     1px -1px 0 #013B52,
     -1px 1px 0 #013B52,
      1px 1px 0 #013B52;
@@ -197,7 +197,7 @@ body {
     font-style: normal;
     color: white;
   text-shadow:
-   -1px -1px 0 #013B52,  
+   -1px -1px 0 #013B52,
     1px -1px 0 #013B52,
     -1px 1px 0 #013B52,
      1px 1px 0 #013B52;
@@ -219,7 +219,7 @@ body {
     font-style: normal;
     color: white;
   text-shadow:
-   -1px -1px 0 #013B52,  
+   -1px -1px 0 #013B52,
     1px -1px 0 #013B52,
     -1px 1px 0 #013B52,
      1px 1px 0 #013B52;

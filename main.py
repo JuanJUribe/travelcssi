@@ -8,6 +8,8 @@ from urllib import urlencode
 import logging
 from google.cloud import translate
 from pprint import pformat
+from HTMLParser import HTMLParser
+import time
 
 from models import User
 
@@ -22,28 +24,32 @@ class MainPageHandler(webapp2.RequestHandler):
         login_url = None
         logout_url = None
         user = users.get_current_user()
+        base_url = "https://fourtonfish.com/hellosalut/?";
+        time.sleep(1)
         if user:
+            language = User.query().filter(User.email == user.email()).get().language
+            params={
+                'cc':language
+            }
+            response = urlfetch.fetch(base_url+urlencode(params), method=urlfetch.POST).content;
+            results = json.loads(response);
+            formattedResult = results["hello"];
+            logging.info("TEST: " + pformat(formattedResult));
             logout_url = users.create_logout_url('/')
+            h = HTMLParser()
+            unescapedResult = h.unescape(formattedResult)
             self.response.write(template.render({
+                'results':unescapedResult,
                 'login_url':login_url,
                 'logout_url':logout_url
             }))
         else:
             login_url = users.create_login_url('/check-user')
-
-        # base_url = "https://fourtonfish.com/hellosalut/?mode=auto";
-        # response = urlfetch.fetch(base_url, method=urlfetch.POST).content;
-        # results = json.loads(response);
-        # formattedResult = results["hello"];
-        # language = request.META['HTTP_ACCEPT_LANGUAGE']
-        # logging.info("TEST: " + pformat(formattedResult));
-
-        template = jinja_env.get_template('templates/main.html')
-        self.response.write(template.render({
-            # "results":results,
-            'login_url':login_url,
-            'logout_url':logout_url
-        }))
+            template = jinja_env.get_template('templates/main.html')
+            self.response.write(template.render({
+                'login_url':login_url,
+                'logout_url':logout_url
+            }))
 
 class CheckUserHandler(webapp2.RequestHandler):
     def get(self):
@@ -65,12 +71,19 @@ class ProfileHandler(webapp2.RequestHandler):
         first_name = self.request.get('first_name')
         last_name = self.request.get('last_name')
         country = self.request.get('country')
+        countryName = country.split(':')[0]
+        language = 'en'
+        try:
+            language = country.split(':')[1]
+        except:
+            pass
         city = self.request.get('city')
         currency = self.request.get('currency')
-        language = self.request.get('language')
+        if users.get_current_user() is None:
+            time.sleep(1)
         email = users.get_current_user().email()
 
-        User(city=city, currency=currency, language=language, email=email, first_name=first_name, last_name=last_name, country=country).put()
+        User(city=city, currency=currency, language=language, email=email, first_name=first_name, last_name=last_name, country=countryName).put()
 
         return self.redirect('/')
 

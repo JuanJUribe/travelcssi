@@ -19,8 +19,25 @@ countryPromise
     .then(jsonResult => {
       countriesResponse = jsonResult;
 
+      console.log(countriesResponse)
+
       for (let countryNumber in countriesResponse.Response){
         const countryName = countriesResponse.Response[countryNumber]['Name']
-        $('#selectCountry').after('<option value='+countryName+'>'+countryName+'</option>');
+        const countryLang = countriesResponse.Response[countryNumber]['Alpha2Code'].toLowerCase()
+        $('#selectCountry').after('<option value='+countryName+':'+countryLang+'>'+countryName+'</option>');
       }
     })
+
+// let countriesResponse;
+//
+// const languagePromise = fetch('');
+// languagePromise
+//     .then(result => result.json())
+//     .then(jsonResult => {
+//       languagesResponse = jsonResult;
+//
+//       for (let language in languagesResponse.Response){
+//         const countryName = countriesResponse.Response[countryNumber]['Name']
+//         $('#selectLanguage').after('<option value='+countryName+'>'+countryName+'</option>');
+//       }
+//     })

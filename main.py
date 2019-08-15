@@ -119,8 +119,21 @@ class FetchWeatherHandler(webapp2.RequestHandler):
 
 class TranslatorHandler(webapp2.RequestHandler):
     def get(self):
-        template = jinja_env.get_template('templates/translator.html')
-        self.response.write(template.render())
+        user = users.get_current_user()
+        time.sleep(1)
+        if user:
+            try:
+                lang = User.query().filter(User.email == user.email()).get().language
+                auto_lang = 'Predetermined - '+lang.upper()
+                template = jinja_env.get_template('templates/translator.html')
+                self.response.write(template.render({
+                    'autoLang':auto_lang
+                }))
+            except:
+                pass
+        else:
+            template = jinja_env.get_template('templates/translator.html')
+            self.response.write(template.render())
 
 class FetchTranslationHandler(webapp2.RequestHandler):
     def get(self, originalText, target):

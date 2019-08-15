@@ -1,8 +1,9 @@
 inputBox = document.querySelector('#inputBox');
 resultBox = document.querySelector('#resultBox');
 translateButton = document.querySelector('#translateButton');
+detectedLangBox = document.querySelector('#detectedLang');
 
-let target = 'es';
+let target = 'de';
 let clicked = false;
 
 inputBox.addEventListener('click', eraseInputContent);
@@ -29,5 +30,8 @@ function translation(){
           console.log("JSON RESULT:")
           console.log(jsonResult);
           resultBox.textContent = jsonResult['translatedText'];
+          detectedLang = jsonResult['detectedSourceLanguage'];
+          console.log(detectedLang);
+          detectedLangBox.textContent = 'Detected Language - '+detectedLang
       })
 }

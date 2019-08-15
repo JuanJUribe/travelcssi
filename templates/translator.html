@@ -23,13 +23,14 @@
           <main><p>TRANSLATE</p></main></div>
     <section>
       <select id ='inputLang'>
-        <p><option id='autoLang'>Auto</option></p>
+        <option id='detectedLang'>Detected Language</option>
+        <option id='autoLang'>{{ autoLang }}</option>
       </select>
       <p><textarea name='inputBox' id='inputBox' rows="10" cols="30">Type text to translate</textarea></p>
       <p><button id='translateButton'>Translate</button></p>
       <p><textarea name='resultBox' id='resultBox' rows="10" cols="30">Translation</textarea></p>
       <select id ='outputLang'>
-        <p><option id='es' value='es'>Spanish</option></p>
+        <p><option id='de' value='de'>Deutsch</option></p>
       </select>
       <div class="caption">
           <p>Wondering how to say your favorite phrases in a new place?</p>

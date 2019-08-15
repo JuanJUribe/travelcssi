@@ -8,3 +8,7 @@ class User(ndb.Model):
     country = ndb.StringProperty(required=True)
     city = ndb.StringProperty(required=True)
     currency = ndb.StringProperty(required=True)
+
+class ContactMessage(ndb.Model):
+    user = ndb.KeyProperty(required=True)
+    message = ndb.StringProperty(required=True)

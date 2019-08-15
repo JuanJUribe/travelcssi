@@ -161,6 +161,14 @@ class FetchTranslationHandler(webapp2.RequestHandler):
         self.response.headers['Content-Type'] = 'application/json'
         self.response.write(translation)
 
+class FetchSupportedLangs(webapp2.RequestHandler):
+    def get(self, originalText, target):
+        translate_client = translate.Client()
+        langs = translate_client.get_languages()
+        langs = json.dumps(langs)
+        self.response.headers['Content-Type'] = 'application/json'
+        self.response.write(langs)
+
 class FetchCountryHandler(webapp2.RequestHandler):
     def get(self):
         base_url = 'http://countryapi.gear.host/v1/Country/getCountries'
@@ -223,4 +231,5 @@ app = webapp2.WSGIApplication([
     ('/contact-us', ContactHandler),
     ('/admin-contact', AdminContactHandler),
     ('/fetch-admin-contact', FetchAdminContactHandler),
+    ('/fetchsupportedlangs', FetchSupportedLangs),
     ], debug=True)

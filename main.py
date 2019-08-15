@@ -18,11 +18,16 @@ jinja_env = jinja2.Environment(
 
 class MainPageHandler(webapp2.RequestHandler):
     def get(self):
+        template = jinja_env.get_template('templates/main.html')
         login_url = None
         logout_url = None
         user = users.get_current_user()
         if user:
             logout_url = users.create_logout_url('/')
+            self.response.write(template.render({
+                'login_url':login_url,
+                'logout_url':logout_url
+            }))
         else:
             login_url = users.create_login_url('/check-user')
 
